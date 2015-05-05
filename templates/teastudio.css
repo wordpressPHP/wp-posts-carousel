@@ -1,0 +1,51 @@
+/*
+* teastudio theme
+*/
+.teastudio-theme.wp-posts-carousel { overflow: hidden; }
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-slide { padding: 1%; position: relative; }
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-container { border: 1px solid transparent; padding: 10px; transition: all 0.3s ease 0s; }
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-container:hover { border-color: #ebebeb; background: #fcfcfc; }
+/*
+* product's image
+*/
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-image { text-align: center; vertical-align: central; overflow: hidden; padding-top:10px; }
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-image a { display: inline-block; width: 100%; text-align: center; }
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-image img {display: block; margin: 0 auto; width: auto; }
+/*
+* product's details
+*/
+.teastudio-theme.wp-posts-carousel .woocommerce-products-flexcarousel-all-in-one-details { padding: 0 5px 10px 5px; } 
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-title { text-align: center; font-size: 18px; }
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-desc { font-size: 12px; color: #666; padding: 2%; margin-bottom: 2%; }
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-price { background: none repeat scroll 0% 0% #D23D46; padding: 2px 12px 2px 8px; font-size: 0.8751em; color: #FFF; text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25); }
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-buttons { text-align: center; }
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-buttons a { padding-right: 5px; border: 1px solid #ebebeb; border-bottom: 3px solid #ebebeb; border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; padding: 10px 16px; color: #666;  }
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-buttons a:hover { text-decoration: none; }
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-add-to-cart-button:before { font-family: "FontAwesome"; content: "\f07a"; padding-right: 10px; }
+
+.teastudio-theme.wp-posts-carousel .wp-posts-carousel-container:hover .wp-posts-carousel-buttons a { background: #f0ad4e; border-color: #FF8A00; color: #fff; }
+/*
+* controls
+*/
+.teastudio-theme.wp-posts-carousel .owl-controls { *height: 0; }
+/*
+* navigation
+*/
+.teastudio-theme.wp-posts-carousel .owl-nav div:before  { font-family: "FontAwesome"; font-size: 30px; display: inline-block; content: '\f104'; }
+.teastudio-theme.wp-posts-carousel .owl-controls .owl-nav div  {background: #fff; color: #ccc; border: 1px solid #ccc; text-align: center; text-decoration: none; display: block; width: 0px; height: 50px;line-height: 50px; margin: -45px 0 0; position: absolute; top: 50%; z-index: 10; overflow: hidden; opacity: 0; cursor: pointer; -webkit-transition: all .3s ease; -moz-transition: all .3s ease; transition: all .3s ease; border-radius: 50%; -webkit-border-radius: 50%; }
+.teastudio-theme.wp-posts-carousel .owl-controls .owl-nav .owl-prev { left: -50px; padding: 0px 30px 0px 17px; }
+.teastudio-theme.wp-posts-carousel .owl-nav .owl-next:before  { content: '\f105'; }
+.teastudio-theme.wp-posts-carousel .owl-controls .owl-nav .owl-next { right: -50px; padding: 0px 27px 0px 20px; }
+.teastudio-theme.wp-posts-carousel:hover .owl-controls .owl-nav .owl-prev { opacity: 0.7; left: 0px; }
+.teastudio-theme.wp-posts-carousel:hover .owl-controls .owl-nav .owl-next  { opacity: 0.7; right: 0px; }
+.teastudio-theme.wp-posts-carousel:hover .owl-controls .owl-nav .owl-prev:hover, 
+.teastudio-theme.wp-posts-carousel:hover .owl-controls .owl-nav .owl-next:hover { opacity: 1; color: #6ea832; }
+
+/*
+* dots
+*/
+.teastudio-theme.wp-posts-carousel .owl-dots { margin-top:10px;text-align:center; }
+.teastudio-theme.wp-posts-carousel .owl-dots .owl-dot { display: inline-block; zoom: 1; *display: inline; }
+.teastudio-theme.wp-posts-carousel .owl-dots .owl-dot span { width: 10px; height: 10px; margin: 5px 7px; background: #d6d6d6; display: block; -webkit-backface-visibility: visible; -webkit-transition: opacity 200ms ease; -moz-transition: opacity 200ms ease; -ms-transition: opacity 200ms ease; -o-transition: opacity 200ms ease; transition: opacity 200ms ease; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px; }
+.teastudio-theme.wp-posts-carousel .owl-dots .owl-dot.active span { background: #869791; }
+.teastudio-theme.wp-posts-carousel .owl-dots .owl-dot:hover span { transform: scale(1.3); }
