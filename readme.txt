@@ -10,8 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WP Posts Carousel is a widget and shortcode generator to show posts or custom post types in carousel by Owl Carousel.
 == Description ==
 
-**WP Posts Carousel** will allow you to create custom shortcode, or add widget that display carousel of Wordpress posts (also available for post types).
-
+**WP Posts Carousel** allows to view the list of selected post types in a carousel. The plugin offers rich parameters of carousel display and post information, and provides better support for mobile devices. The plugin is equipped with a code generator (allows to insert the carousel into content) and a dedicated widget.
 
 = Now available in the following Languages = 
 
@@ -34,9 +33,9 @@ I will be grateful for opinions and reviews.
 
 == Installation ==
 
-1. Upload plugin either via the your's Wordpress installation, or by uploading to the /wp-content/plugins/ by FTP client
+1. Upload plugin either via the your's WordPress installation, or by uploading to the /wp-content/plugins/ by FTP client
 2. Install the plugin through the 'Plugins' menu in WordPress.
-3. Activate "WooCommerce Products Carousel all in one" in the "Plugins" using the "Activate" link.
+3. Activate "WP Posts Carousel" in the "Plugins" using the "Activate" link.
 4. Go to the plugin settings page in the "Settings" menu.
 
 == Frequently Asked Questions ==
