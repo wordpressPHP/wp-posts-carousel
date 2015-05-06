@@ -48,7 +48,7 @@ If you've got any questions, don't hesitate to ask.
 1. Widget configuration
 2. Shortcode generator
 3. WYSIWYG button
-4. Example of use
+4. Example of usage
 
 == Changelog ==
 = 1.0.0 =
