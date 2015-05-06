@@ -11,6 +11,8 @@ WP Posts Carousel is a widget and shortcode generator to show posts or custom po
 == Description ==
 
 **WP Posts Carousel** allows to view the list of selected post types in a carousel. The plugin offers rich parameters of carousel display and post information, and provides better support for mobile devices. The plugin is equipped with a code generator (allows to insert the carousel into content) and a dedicated widget.
+This plugin uses [OWL Carousel](http://www.owlcarousel.owlgraphic.com/) in new version 2.0.0-beta.2.4.
+
 
 = Now available in the following Languages = 
 
@@ -18,9 +20,10 @@ WP Posts Carousel is a widget and shortcode generator to show posts or custom po
 * Polish (pl_PL)
 
 
-For more information, check out plugin page at [Teastudio.pl](http://www.teastudio.pl/product/wp-posts-carousel/).
+For more information, check out [PLUGIN HOMEPAGE](http://www.teastudio.pl/en/product/product/wp-posts-carousel/).
 
-This plugin uses [OWL Carousel](http://www.owlcarousel.owlgraphic.com/) in new version 2.0.0-beta.2.4.
+= DEMO =
+You can see the plugin in action on [DEMO PAGE](http://wordpress.teastudio.pl/category/product/wp-posts-carousel/)
 
 
 I will be grateful for opinions and reviews.
