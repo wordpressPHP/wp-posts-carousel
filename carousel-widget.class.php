@@ -130,6 +130,10 @@ function form($instance) {
         <label for="<?php echo $this->get_field_id("show_category"); ?>"><?php _e("Show category", "wp-posts-carousel"); ?></label>
     </p>     
     <p>
+        <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("show_tags"); ?>" name="<?php echo $this->get_field_name("show_tags"); ?>" <?php array_key_exists('show_tags', $instance) ? checked( (bool) $instance["show_tags"], true ): null; ?> value="1" />
+        <label for="<?php echo $this->get_field_id("show_tags"); ?>"><?php _e("Show tags", "wp-posts-carousel"); ?></label>
+    </p>      
+    <p>
         <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("show_more_button"); ?>" name="<?php echo $this->get_field_name("show_more_button"); ?>" <?php array_key_exists('show_more_button', $instance) ? checked( (bool) $instance["show_more_button"], true ): null; ?> value="1" />
         <label for="<?php echo $this->get_field_id("show_more_button"); ?>"><?php _e("Show more button", "wp-posts-carousel"); ?></label>
     </p>  

@@ -25,7 +25,8 @@ class WpPostsCarouselGenerator {
                             'show_title'              => 'true',
                             'show_created_date'       => 'true',
                             'show_description'        => 'true',
-                            'show_category'           => 'true', 
+                            'show_category'           => 'true',
+                            'show_tags'               => 'false',
                             'show_more_button'        => 'true',    
                             'show_featured_image'     => 'true',
                             'image_source'            => 'thumbnail',            
@@ -65,6 +66,7 @@ class WpPostsCarouselGenerator {
                  */
                 $post_type = $params['post_type'] ? $params['post_type'] : 'post';
                 $post_type_category = $params['post_type'].'_category';  
+                $post_tag = $params['post_type'].'_tag';  
                 
                 if ($post_type === 'post') {
                     $post_type_category = 'category';
@@ -144,7 +146,7 @@ class WpPostsCarouselGenerator {
                         /*
                          * if no featured image for the product
                          */
-                        if($image[0] == '' || $image[0] == '/') {
+                        if ($image[0] == '' || $image[0] == '/') {
                                 $image[0] = plugin_dir_url( __FILE__ ).'images/placeholder.png';   
                         }
 
@@ -173,6 +175,17 @@ class WpPostsCarouselGenerator {
                         }                        
                         
                         /*
+                         * show tags
+                         */                        
+                        //if ($params['show_tags'] == 'true' && $post_tag) {
+                                $categories = get_the_terms($post->ID, $post_type_category);                                
+                                
+                                $tags = '<p class="wp-posts-carousel-tags">';
+                                        $tags .= get_the_term_list(get_the_ID(), $post_tag, '', ' ', '' );
+                                $tags .= '</p>';                                   
+                        //}                          
+                        
+                        /*
                          * show created date
                          */ 
                         if ($params['show_created_date'] === 'true') {
@@ -183,7 +196,7 @@ class WpPostsCarouselGenerator {
                         
                         if ($params['show_featured_image'] === 'true') {
                                 $featured_image = '<div class="wp-posts-carousel-image">';
-                                        $featured_image .= '<a href="'. $post_url .'" title="'. __('Show item', 'wp-posts-carousel') .' '. $post->post_title .'">';
+                                        $featured_image .= '<a href="'. $post_url .'" title="'. __('Read more', 'wp-posts-carousel') .' '. $post->post_title .'">';
                                                 $featured_image .= '<img src="'. $image[0] .'" alt="'. $post->post_title .'" style="max-width:'. $params['image_width'] .'%;max-height:'. $params['image_height'] .'%">';
                                         $featured_image .= '</a>';
                                 $featured_image .= '</div>';
@@ -218,7 +231,8 @@ class WpPostsCarouselGenerator {
                                                 $out .= $title;                                                
                                                 $out .= $created_date;
                                                 $out .= $category;
-                                                $out .= $description;                                                
+                                                $out .= $description;  
+                                                $out .= $tags;                                                                                              
                                                 $out .= $buttons;              
                                         $out .= '</div>';
                                 $out .= '</div>';
@@ -301,6 +315,7 @@ class WpPostsCarouselGenerator {
                                     'show_created_date'       => 'true',
                                     'show_description'        => 'true',
                                     'show_category'           => 'true',
+                                    'show_tags'               => 'false',
                                     'show_more_button'        => 'true',
                                     'show_featured_image'     => 'true',         
 

@@ -48,9 +48,12 @@ If you've got any questions, don't hesitate to ask.
 1. Widget configuration
 2. Shortcode generator
 3. WYSIWYG button
-4. Example of usage
+4. Example of use
 
 == Changelog ==
+= 1.0.1 =
+* new option to display post tags
+* new way to include FontAwesome - from official Bootstrap CDN
 = 1.0.0 =
 Initial release
 

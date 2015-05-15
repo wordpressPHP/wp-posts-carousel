@@ -22,6 +22,12 @@
 .simple-theme.wp-posts-carousel .wp-posts-carousel-buttons { text-align: center; }
 .simple-theme.wp-posts-carousel .wp-posts-carousel-buttons a { padding-right: 5px; }
 /*
+* tags
+*/
+.simple-theme.wp-posts-carousel .wp-posts-carousel-tags { font-size: 11px; }
+.simple-theme.wp-posts-carousel .wp-posts-carousel-tags a { padding: 2px 10px; background: #fafafa; color: #666; text-decoration: none; border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; transition: all 0.3s ease 0s; }
+.simple-theme.wp-posts-carousel .wp-posts-carousel-tags a:hover { color: #6E95B6; }
+/*
 * controls
 */
 .simple-theme.wp-posts-carousel .owl-controls { *height: 0; }

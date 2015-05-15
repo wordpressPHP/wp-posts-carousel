@@ -3,7 +3,7 @@
 Plugin Name: Wp Posts Carousel
 Plugin URI: http://www.teastudio.pl/produkt/wp-posts-carousel/
 Description: WP Posts Carousel is a widget to show posts in carousel by <a href="http://www.owlcarousel.owlgraphic.com/" target="_blank" title="OWL Carousel homepage">OWL Carousel</a>.
-Version: 1.0.0
+Version: 1.0.1
 Author: Marcin Gierada
 Author URI: http://www.teastudio.pl/
 Author Email: m.gierada@teastudio.pl
@@ -34,12 +34,12 @@ function wp_posts_carousel_init() {
  */
 $WP_Posts_Carousel = new WP_Posts_Carousel();
 class WP_Posts_Carousel {
-        const VERSION = '1.0.0';
+        const VERSION = '1.0.1';
         private $plugin_name = 'WP Posts Carousel';
         private $plugin_slug = 'wp-posts-carousel';
         private $options = array();
-        
-	public function __construct() {
+
+        public function __construct() {
                 /*
                  * get options
                  */
@@ -47,22 +47,25 @@ class WP_Posts_Carousel {
                 
 
                 //include required files based on admin or site
-                if (is_admin()) {                            
+                if (is_admin()) {     
+                        /*
+                         * activate plugin
+                         */
                         add_action( 'init', array($this, 'wp_posts_carousel_button') );	
                         add_action( 'admin_init', array($this, 'register_settings'));
                         add_action( 'admin_menu', array($this, 'admin_menu_options')); 
                         add_action( 'admin_head',  array($this, 'wp_posts_carousel_wp_head') );   
-                        add_action( 'admin_head', array($this, 'wp_posts_carousel_button') );     
-
+                        add_action( 'admin_head', array($this, 'wp_posts_carousel_button') );  
+                        
                         /*
                          * ajax page for shortcode generator
                          */
                         add_action("wp_ajax_wp_posts_carousel_shortcode_generator", array($this, "WpPostsCarouselShortcodeGenerator") );
-
+                       
                         /*
                          * clear settings
                          */
-                        register_deactivation_hook(__FILE__,  array($this, 'deactivation') );
+                        register_deactivation_hook(__FILE__,  array($this, 'deactivation') );   
                 } else {
                         require_once("shortcode-decode.class.php");
 
@@ -78,18 +81,17 @@ class WP_Posts_Carousel {
                  */
                 require_once("carousel-generator.class.php");
                 require_once("carousel-widget.class.php");
-        }          
+        }       
         
-	/**
-	 * deactivate the plugin
-	 */
-	public function deactivation()
-	{
-                if ( ! current_user_can( 'activate_plugins' ) ) {
+        /**
+         * deactivate the plugin
+         */
+        public function deactivation() {
+                if ( !current_user_can( 'activate_plugins' ) ) {
                        return;            
                 }
                 delete_option( $this->plugin_slug . '_options' );
-	}       
+        }       
                 
         /**
          * retrieves the plugin options from the database.
@@ -124,16 +126,10 @@ class WP_Posts_Carousel {
                 wp_enqueue_style("owl.carousel.style");
                 
                 /*
-                 * include Font Awesome library
+                 * include Font Awesome library from Bootstrap CDN 
                  */
-                if( array_key_exists('include_font_awesome', $this->options) && $this->options['include_font_awesome'] == 1 ) {
-                        $name = "FontAwesome/font-awesome.min.css";
-                        $plugin_url = plugins_url( dirname(plugin_basename(__FILE__)) ). '/'.$name;
-                        $file = plugin_dir_path( __FILE__ ) . $name; 
-
-                        if ( @file_exists($file) ) {
-                                wp_enqueue_style( 'wp-font-awesome', $plugin_url, false );
-                        }
+                if( $this->options['include_font_awesome'] == 1 ) {
+                        wp_enqueue_style( 'wp-font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', false );
                 }                
         }  
         
@@ -177,23 +173,23 @@ class WP_Posts_Carousel {
                 return $buttons;
         } 
         
-	/**
-	 * add submenu
-	 */
-	public function admin_menu_options() {
-		add_options_page(
-			__($this->plugin_name, $this->plugin_slug),
-			__($this->plugin_name, $this->plugin_slug),
-			'manage_options',
-			$this->plugin_slug,
-			array( $this, 'settings_page' )
-		);
-	}   
-        
-	/**
-	 * regiseter plugin settings
-	 */
-	public function register_settings() {
+        /**
+         * add submenu
+         */
+        public function admin_menu_options() {
+            add_options_page(
+                __($this->plugin_name, $this->plugin_slug),
+                __($this->plugin_name, $this->plugin_slug),
+                'manage_options',
+                $this->plugin_slug,
+                array( $this, 'settings_page' )
+            );
+        }   
+
+        /**
+         * regiseter plugin settings
+         */
+        public function register_settings() {
                 register_setting( $this->plugin_slug, $this->plugin_slug . '_options' );
         } 
         
@@ -229,27 +225,27 @@ function settings_page() {
                 <div class="has-sidebar sm-padded">
                         <div id="post-body-content" class="has-sidebar-content">
                                 <form method="post" action="options.php">
-                                    <?php settings_fields( $this->plugin_slug ); ?>
+                                        <?php settings_fields( $this->plugin_slug ); ?>
 
-                                    <h3><?php _e('Main settings', $this->plugin_slug) ?></h3>
-                                    <hr />
-  
-                                    <table class="form-table" style="width:auto;clear:initial;">
-                                        <tbody>              
-                                            <tr valign="top">
-                                                <th scope="row"><?php _e('Font Awesome', $this->plugin_slug) ?></th>
-                                                <td>
-                                                    <label for="<?php echo $this->plugin_slug; ?>_first_paragraph_lock">
-                                                        <input type="checkbox" name="<?php echo $this->plugin_slug; ?>_options[include_font_awesome]" id="<?php echo $this->plugin_slug; ?>_include_font_awesome" value="1" <?php array_key_exists('include_font_awesome', $this->options) ? checked( (bool) $this->options["include_font_awesome"], true ): null;; ?> />
-                                                        <?php _e('Include Font Awesome', $this->plugin_slug) ?>
-                                                    </label>
-                                                    <p class="description"><?php _e('Select this option if you would like to include <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank"><b>Font Awesome</b></a> stylesheet.<br />Uncheck if you are already using this library.', $this->plugin_slug) ?></p> 
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                        <h3><?php _e('Main settings', $this->plugin_slug) ?></h3>
+                                        <hr />
 
-                                    <?php submit_button('', 'primary', 'submit', true); ?>
+                                        <table class="form-table" style="width:auto;clear:initial;">
+                                            <tbody>              
+                                                <tr valign="top">
+                                                    <th scope="row"><?php _e('Font Awesome', $this->plugin_slug) ?></th>
+                                                    <td>
+                                                        <label for="<?php echo $this->plugin_slug; ?>_first_paragraph_lock">
+                                                            <input type="checkbox" name="<?php echo $this->plugin_slug; ?>_options[include_font_awesome]" id="<?php echo $this->plugin_slug; ?>_include_font_awesome" value="1" <?php array_key_exists('include_font_awesome', $this->options) ? checked( (bool) $this->options["include_font_awesome"], true ): null;; ?> />
+                                                            <?php _e('Include Font Awesome', $this->plugin_slug) ?>
+                                                        </label>
+                                                        <p class="description"><?php _e('Select this option if you would like to include <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank"><b>Font Awesome</b></a> stylesheet.<br />Uncheck if you are already using this library.', $this->plugin_slug) ?></p> 
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <?php submit_button('', 'primary', 'submit', true); ?>
                                 </form>
                         </div>
                 </div>

@@ -122,6 +122,12 @@ function insert_shortcode() {
             <td>
                 <input type="checkbox" value="1" name="show_category" id="show_category" checked="checked">
             </td>
+        </tr>   
+        <tr>
+            <td><?php _e('Show tags', 'wp-posts-carousel'); ?>:</td>
+            <td>
+                <input type="checkbox" value="1" name="show_tags" id="show_tags">
+            </td>
         </tr>          
         <tr>
             <td><?php _e('Show more button', 'wp-posts-carousel'); ?>:</td>
