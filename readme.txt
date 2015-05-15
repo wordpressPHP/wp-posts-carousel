@@ -20,7 +20,7 @@ This plugin uses [OWL Carousel](http://www.owlcarousel.owlgraphic.com/) in new v
 * Polish (pl_PL)
 
 
-For more information, check out [PLUGIN HOMEPAGE](http://www.teastudio.pl/en/product/product/wp-posts-carousel/).
+For more information, check out [PLUGIN HOMEPAGE](http://www.teastudio.pl/en/product/wp-posts-carousel/).
 
 = DEMO =
 You can see the plugin in action on [DEMO PAGE](http://wordpress.teastudio.pl/category/product/wp-posts-carousel/)
