@@ -47,9 +47,9 @@ If you've got any questions, don't hesitate to ask.
 
 = How can I add custom theme? =
 
-Now, you can add your custom stylesheet in your's theme directory.
-If you don't have "css" folder in your WordPress theme, you must create it.
-Then, in this folder create another - named "wp-posts-carousel" and now you can move custom stylesheets in there :)
+1. Now, you can add your custom stylesheet in your's theme directory.
+2. If you don't have "css" folder in your WordPress theme, you must create it.
+3. Then, in this folder create another - named "wp-posts-carousel" and now you can move custom stylesheets in there :)
 
 Folders tree should looks like this: 
 /themes/my_wordpress_theme/css/wp-posts-carousel/custom.css
