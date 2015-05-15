@@ -177,13 +177,13 @@ class WpPostsCarouselGenerator {
                         /*
                          * show tags
                          */                        
-                        //if ($params['show_tags'] == 'true' && $post_tag) {
+                        if ($params['show_tags'] == 'true' && $post_tag) {
                                 $categories = get_the_terms($post->ID, $post_type_category);                                
                                 
                                 $tags = '<p class="wp-posts-carousel-tags">';
                                         $tags .= get_the_term_list(get_the_ID(), $post_tag, '', ' ', '' );
                                 $tags .= '</p>';                                   
-                        //}                          
+                        }                          
                         
                         /*
                          * show created date
