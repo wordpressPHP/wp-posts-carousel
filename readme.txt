@@ -52,6 +52,7 @@ If you don't have "css" folder in your WordPress theme, you must create it.
 Then, in this folder create another - named "wp-posts-carousel" and now you can move custom stylesheets in there :)
 
 Folders tree should looks like this:
+
 /themes/my_wordpress_theme/css/wp-posts-carousel/custom.css
 
 
