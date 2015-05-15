@@ -91,7 +91,7 @@ class WpPostsCarouselGenerator {
                 $plugin_theme_file = plugin_dir_path( __FILE__ ) . '/templates/'. $theme;
                 
                 $site_theme_url = get_template_directory_uri() . '/css/wp-posts-carousel/' . $theme;
-                $site_theme_file = get_template_directory( __FILE__ ) . '/css/wp-posts-carousel/'. $theme;                
+                $site_theme_file = get_template_directory( ) . '/css/wp-posts-carousel/' . $theme;                
 
                 if ( @file_exists($plugin_theme_file) ) {
                         wp_enqueue_style( 'wp_posts_carousel-carousel-style-'. $theme_name, $plugin_theme_url, true );
