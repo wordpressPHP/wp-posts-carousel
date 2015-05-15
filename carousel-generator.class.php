@@ -81,16 +81,22 @@ class WpPostsCarouselGenerator {
                 /*
                  * theme
                  */
-                $theme = str_replace('.css', '', $params['template']);  
+                $theme =  $params['template'];
+                $theme_name = str_replace('.css', '', $theme);
 
                 /*
                  * check if template css file exists
                  */
-                $theme_url = plugins_url( dirname(plugin_basename(__FILE__)) ) . '/templates/' . $theme .'.css';
-                $theme_file = plugin_dir_path( __FILE__ ) . '/templates/'. $theme . '.css'; 
+                $plugin_theme_url = plugins_url( dirname(plugin_basename(__FILE__)) ) . '/templates/' . $theme;
+                $plugin_theme_file = plugin_dir_path( __FILE__ ) . '/templates/'. $theme;
+                
+                $site_theme_url = get_template_directory_uri() . '/css/wp-posts-carousel/' . $theme;
+                $site_theme_file = get_template_directory( __FILE__ ) . '/css/wp-posts-carousel/'. $theme;                
 
-                if ( @file_exists($theme_file) ) {
-                        wp_enqueue_style( 'wp_posts_carousel-carousel-style-'. $theme, $theme_url, true );
+                if ( @file_exists($plugin_theme_file) ) {
+                        wp_enqueue_style( 'wp_posts_carousel-carousel-style-'. $theme_name, $plugin_theme_url, true );
+                } else if ( @file_exists($site_theme_file) ) {
+                        wp_enqueue_style( 'wp_posts_carousel-carousel-style-'. $theme_name, $site_theme_url, true );                        
                 } else {
                     return '<div class="error"><p>'. sprintf( __('Theme - %s.css stylesheet is missing.', 'wp-posts-carousel'), $theme ) .'</p></div>'; 
                 }        
@@ -98,7 +104,7 @@ class WpPostsCarouselGenerator {
                 /*
                  * prepare html and loop
                  */
-                $out = '<div id="wp-posts-carousel-'. $params['id'] .'" class="'. $theme .'-theme wp-posts-carousel owl-carousel">';
+                $out = '<div id="wp-posts-carousel-'. $params['id'] .'" class="'. $theme_name .'-theme wp-posts-carousel owl-carousel">';
 
                 /*
                  * prepare sql query
