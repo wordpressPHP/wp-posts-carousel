@@ -60,7 +60,7 @@ Folders tree should looks like this:
 1. Widget configuration
 2. Shortcode generator
 3. WYSIWYG button
-4. Example of use
+4. Example of usage
 
 == Changelog ==
 = 1.0.1 =
