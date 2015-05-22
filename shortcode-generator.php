@@ -91,7 +91,14 @@ function insert_shortcode() {
                 <small><?php _e('Please enter Category IDs with comma seperated.', 'wp-posts-carousel') ?></small>
             </td>
         </tr> 
-
+        <tr>
+            <td align="left"><?php _e('Tag IDs', 'wp-posts-carousel'); ?>:</td>
+            <td>
+                <input type="text" name="tags" id="tags" value="" size="30">
+                <br />
+                <small><?php _e('Please enter Tag IDs with comma seperated.', 'wp-posts-carousel') ?></small>
+            </td>
+        </tr> 
 
         <tr>
             <td colspan="2" align="left">
@@ -112,11 +119,15 @@ function insert_shortcode() {
             </td>
         </tr>
         <tr>
-            <td><?php _e('Show description', 'wp-posts-carousel'); ?>:</td>
+            <td align="left"><?php _e('Show description', 'wp-posts-carousel'); ?>:</td>
             <td>
-                <input type="checkbox" value="1" name="show_description" id="show_description" checked="checked">
+                <select name="show_description" id="show_description" class="select">
+                    <option value="false"><?php _e("No", 'wp-posts-carousel') ?></option>
+                    <option value="excerpt"><?php _e("Excerpt", 'wp-posts-carousel') ?></option>
+                    <option value="content"><?php _e("Full content", 'wp-posts-carousel') ?></option>              
+                </select>	
             </td>
-        </tr>  
+        </tr>   
         <tr>
             <td><?php _e('Show category', 'wp-posts-carousel'); ?>:</td>
             <td>
@@ -184,6 +195,14 @@ function insert_shortcode() {
                 <input type="text" name="slide_by" id="slide_by" value="1" size="5">
                 <br />
                 <small><?php echo _e("Number of elements to slide.", "wp-posts-carousel") ?></small>                
+            </td>
+        </tr> 
+        <tr>
+            <td align="left"><?php _e('Margin', 'wp-posts-carousel'); ?>:</td>
+            <td>
+                <input type="text" name="margin" id="margin" value="5" size="5">[px]
+                <br />
+                <small><?php echo _e("Margin between items.", "wp-posts-carousel") ?></small>                  
             </td>
         </tr>         
         <tr>

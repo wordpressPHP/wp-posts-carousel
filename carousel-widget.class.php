@@ -44,7 +44,7 @@ function form($instance) {
         /*
          * load defaults if new
          */
-        if(empty($instance)) {
+        if ( empty($instance) ) {
                 $instance = WpPostsCarouselGenerator::getDefaults();
         }      
 
@@ -108,7 +108,12 @@ function form($instance) {
         <br />
         <small><?php _e("Please enter Category IDs with comma seperated.", "wp-posts-carousel") ?></small>
     </p> 
-    
+    <p>
+        <label for="<?php echo $this->get_field_id("tags"); ?>"><?php _e("Tag IDs", "wp-posts-carousel"); ?>:</label>
+        <input class="widefat" id="<?php echo $this->get_field_id("tags"); ?>" name="<?php echo $this->get_field_name("tags"); ?>" type="text" value="<?php echo esc_attr($instance["tags"]); ?>" />
+        <br />
+        <small><?php _e("Please enter Tag IDs with comma seperated.", "wp-posts-carousel") ?></small>
+    </p>     
     
     <p>
         <strong>--- <?php _e("Post options", "wp-posts-carousel") ?> ---</strong>
@@ -120,11 +125,22 @@ function form($instance) {
     <p>
         <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("show_created_date"); ?>" name="<?php echo $this->get_field_name("show_created_date"); ?>" <?php array_key_exists('show_created_date', $instance) ? checked( (bool) $instance["show_created_date"], true ): null; ?> value="1" />
         <label for="<?php echo $this->get_field_id("show_created_date"); ?>"><?php _e("Show created date", "wp-posts-carousel"); ?></label>
-    </p>    
-    <p>
-        <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("show_description"); ?>" name="<?php echo $this->get_field_name("show_description"); ?>" <?php array_key_exists('show_description', $instance) ? checked( (bool) $instance["show_description"], true ): null; ?> value="1" />
-        <label for="<?php echo $this->get_field_id("show_description"); ?>"><?php _e("Show description", "wp-posts-carousel"); ?></label>
     </p> 
+    <p>
+        <label for="<?php echo $this->get_field_id("show_description"); ?>"><?php _e("Show description", "wp-posts-carousel"); ?>:</label>
+        <br />
+        <select name="<?php echo $this->get_field_name("show_description"); ?>" id="<?php echo $this->get_field_id("show_description"); ?>" class="select">
+          <?php            
+            $description_list = array("false" => __("No", "wp-posts-carousel"),
+                                      "excerpt" => __("Excerpt", "wp-posts-carousel"),
+                                      "content" => __("Full content", "wp-posts-carousel")
+                                     );
+            foreach($description_list as $key => $list) {
+                echo "<option value=\"" .$key ."\" ". (esc_attr($instance["show_description"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
+            }
+          ?>
+        </select>
+    </p>  
     <p>
         <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("show_category"); ?>" name="<?php echo $this->get_field_name("show_category"); ?>" <?php array_key_exists('show_category', $instance) ? checked( (bool) $instance["show_category"], true ): null; ?> value="1" />
         <label for="<?php echo $this->get_field_id("show_category"); ?>"><?php _e("Show category", "wp-posts-carousel"); ?></label>
@@ -183,7 +199,12 @@ function form($instance) {
         <input size="5" id="<?php echo $this->get_field_id("slide_by"); ?>" name="<?php echo $this->get_field_name("slide_by"); ?>" type="text" value="<?php echo esc_attr($instance["slide_by"]); ?>" />
         <br />
         <small><?php echo _e("Number of elements to slide.", "wp-posts-carousel") ?></small>
-    </p>     
+    </p>  
+    <p>
+        <label for="<?php echo $this->get_field_id("margin"); ?>"><?php _e("Margin", "wp-posts-carousel"); ?>:</label>
+        <br />
+        <input size="5" id="<?php echo $this->get_field_id("margin"); ?>" name="<?php echo $this->get_field_name("margin"); ?>" type="text" value="<?php echo esc_attr($instance["margin"]); ?>" />[px]
+    </p>      
     <p>
         <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("loop"); ?>" name="<?php echo $this->get_field_name("loop"); ?>" <?php array_key_exists('loop', $instance) ? checked( (bool) $instance["loop"], true ): null; ?> value="1" />
         <label for="<?php echo $this->get_field_id("loop"); ?>"><?php _e("Inifnity loop", "wp-posts-carousel"); ?></label>

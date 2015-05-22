@@ -44,6 +44,17 @@ I will be grateful for opinions and reviews.
 == Frequently Asked Questions ==
 If you've got any questions, don't hesitate to ask.
 
+= I made a update from a 1.0.3 version. What now? =
+In the previous version we used the "show_description" option with a range of values "true" and "false".
+From now on, these values are changing to: 
+1. "false", - if you don't want to display neither excerpt nor full content,
+2. "excerpt" - if you want to display excerpt (old "true" value),
+3. "content" - if you want to display full content.
+
+**What to do?**
+* If you're using on your website shortcode from this plugin, you must delete old and generate it again, or manually change these values.
+* If you're using widget, you must update its options.
+
 
 = How can I add custom theme? =
 
@@ -63,6 +74,14 @@ Folders tree should looks like this:
 4. Example of usage
 
 == Changelog ==
+= 1.0.4 =
+* new way to display posts - by full content
+**Important** Before update read FAQ.
+* new option to set margin between items
+= 1.0.3 =
+* new option to display posts or other taxonomies with selected tags 
+= 1.0.2 =
+* changed custom stylesheet directory
 = 1.0.1 =
 * new option to display post tags
 * new way to include FontAwesome - from official Bootstrap CDN
@@ -70,6 +89,16 @@ Folders tree should looks like this:
 Initial release
 
 == Upgrade Notice ==
-
-= 1.0 =
+= 1.0.4 =
+* new way to display posts - by full content
+**Important** Before update read FAQ.
+* new option to set margin between items
+= 1.0.3 =
+* new option to display posts or other taxonomies with selected tags 
+= 1.0.2 =
+* changed custom stylesheet directory
+= 1.0.1 =
+* new option to display post tags
+* new way to include FontAwesome - from official Bootstrap CDN
+= 1.0.0 =
 Initial release

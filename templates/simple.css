@@ -14,7 +14,7 @@
 /*
 * post's details
 */
-.simple-theme.wp-posts-carousel .woocommerce-products-flexcarousel-all-in-one-details { padding: 0 5px 10px 5px; } 
+.simple-theme.wp-posts-carousel .wp-posts-carousel-details { padding: 0 5px 10px 5px; } 
 .simple-theme.wp-posts-carousel .wp-posts-carousel-title { text-align: center; font-size: 18px; }
 .simple-theme.wp-posts-carousel .wp-posts-carousel-desc { font-size: 12px; color: #666; padding: 2%; margin-bottom: 2%; }
 .simple-theme.wp-posts-carousel .wp-posts-carousel-created-date { padding: 0; margin: 0;font-size: 12px; color: #666; }
