@@ -47,6 +47,7 @@ If you've got any questions, don't hesitate to ask.
 = I made a update from a 1.0.3 version. What now? =
 In the previous version we used the "show_description" option with a range of values "true" and "false".
 From now on, these values are changing to: 
+
 1. "false", - if you don't want to display neither excerpt nor full content,
 2. "excerpt" - if you want to display excerpt (old "true" value),
 3. "content" - if you want to display full content.
