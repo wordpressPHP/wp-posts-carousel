@@ -52,6 +52,7 @@ From now on, these values are changing to:
 3. "content" - if you want to display full content.
 
 **What to do?**
+
 * If you're using on your website shortcode from this plugin, you must delete old and generate it again, or manually change these values.
 * If you're using widget, you must update its options.
 
