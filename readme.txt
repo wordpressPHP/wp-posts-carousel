@@ -76,6 +76,8 @@ Folders tree should looks like this:
 4. Example of usage
 
 == Changelog ==
+= 1.0.5 =
+* fixed FontAwesome include method
 = 1.0.4 =
 * new way to display posts - by full content
 **Important** Before update read FAQ.
@@ -91,6 +93,8 @@ Folders tree should looks like this:
 Initial release
 
 == Upgrade Notice ==
+= 1.0.5 =
+* fixed FontAwesome include method
 = 1.0.4 =
 * new way to display posts - by full content
 **Important** Before update read FAQ.

@@ -34,7 +34,7 @@ function wp_posts_carousel_init() {
  */
 $WP_Posts_Carousel = new WP_Posts_Carousel();
 class WP_Posts_Carousel {
-        const VERSION = '1.0.4';
+        const VERSION = '1.0.5';
         private $plugin_name = 'WP Posts Carousel';
         private $plugin_slug = 'wp-posts-carousel';
         private $options = array();
@@ -128,7 +128,7 @@ class WP_Posts_Carousel {
                 /*
                  * include Font Awesome library from Bootstrap CDN 
                  */
-                if( $this->options['include_font_awesome'] == 1 ) {
+                if( array_key_exists('include_font_awesome', $this->options) && $this->options['include_font_awesome'] == 1 ) {
                         wp_enqueue_style( 'wp-font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', false );
                 }                
         }  
