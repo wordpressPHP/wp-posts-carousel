@@ -3,7 +3,7 @@
 Plugin Name: Wp Posts Carousel
 Plugin URI: http://www.teastudio.pl/produkt/wp-posts-carousel/
 Description: WP Posts Carousel is a widget to show posts in carousel by <a href="http://www.owlcarousel.owlgraphic.com/" target="_blank" title="OWL Carousel homepage">OWL Carousel</a>.
-Version: 1.0.4
+Version: 1.0.6
 Author: Marcin Gierada
 Author URI: http://www.teastudio.pl/
 Author Email: m.gierada@teastudio.pl
@@ -34,7 +34,7 @@ function wp_posts_carousel_init() {
  */
 $WP_Posts_Carousel = new WP_Posts_Carousel();
 class WP_Posts_Carousel {
-        const VERSION = '1.0.5';
+        const VERSION = '1.0.6';
         private $plugin_name = 'WP Posts Carousel';
         private $plugin_slug = 'wp-posts-carousel';
         private $options = array();
@@ -194,6 +194,14 @@ class WP_Posts_Carousel {
         } 
         
 function settings_page() {
+    
+        /**
+         * check if WordPress Popular Posts is active
+         */
+        include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+        if ( !is_plugin_active( 'wordpress-popular-posts/wordpress-popular-posts.php' ) ) {  
+            echo '<div class="error"><p>'. __('The <strong>WP Posts Carousel</strong> plugin require <a href="https://wordpress.org/plugins/wordpress-popular-posts/" target="_blank" title="WordPress Popular Posts">WordPress Popular Posts</a> plugin to display popular posts in carousel. Please install or active this plugin.', $this->plugin_slug) .'</p></div>'; 
+        }  
 ?>
 <div class="wrap">
         <div id="poststuff" class="metabox-holder has-right-sidebar">    

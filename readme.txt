@@ -44,18 +44,11 @@ I will be grateful for opinions and reviews.
 == Frequently Asked Questions ==
 If you've got any questions, don't hesitate to ask.
 
-= I made a update from a 1.0.3 version. What now? =
-In the previous version we used the "show_description" option with a range of values "true" and "false".
-From now on, these values are changing to: 
+= I made a update from a previous version. What now? =
 
-1. "false", - if you don't want to display neither excerpt nor full content,
-2. "excerpt" - if you want to display excerpt (old "true" value),
-3. "content" - if you want to display full content.
-
-**What to do?**
-
-* If you're using on your website shortcode from this plugin, you must delete old and generate it again, or manually change these values.
+* If you're using on your website shortcode from this plugin, the best way is to delete old code and generate it again.
 * If you're using widget, you must update its options.
+* **Go to the plugin settings page and see if there are any notifications**
 
 
 = How can I add custom theme? =
@@ -76,6 +69,12 @@ Folders tree should looks like this:
 4. Example of usage
 
 == Changelog ==
+= 1.0.6 =
+* new option to sort - by post views (required external plugin - Wordpress Popular Posts)
+* new option to sort - by id
+* new option to sort - by title
+* new option to sort - by date
+* new option to order - random lists
 = 1.0.5 =
 * fixed FontAwesome include method
 = 1.0.4 =
@@ -93,6 +92,12 @@ Folders tree should looks like this:
 Initial release
 
 == Upgrade Notice ==
+= 1.0.6 =
+* new option to sort - by post views (required external plugin - Wordpress Popular Posts)
+* new option to sort - by id
+* new option to sort - by title
+* new option to sort - by date
+* new option to order - random lists
 = 1.0.5 =
 * fixed FontAwesome include method
 = 1.0.4 =

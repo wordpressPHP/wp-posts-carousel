@@ -6,8 +6,8 @@ Author Email: m.gierada@teastudio.pl
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
+class WpPostsCarouselGenerator {   
 
-class WpPostsCarouselGenerator {
     
         public static function generateId() {
                 return rand();
@@ -22,6 +22,7 @@ class WpPostsCarouselGenerator {
                             'categories'              => '',
                             'tags'                    => '',
                             'all_items'               => 10,
+                            'show_only'               => 'id',
 
                             'show_title'              => 'true',
                             'show_created_date'       => 'true',
@@ -107,7 +108,7 @@ class WpPostsCarouselGenerator {
                 } else if ( @file_exists($site_theme_file) ) {
                         wp_enqueue_style( 'wp_posts_carousel-carousel-style-'. $theme_name, $site_theme_url, true );                        
                 } else {
-                    return '<div class="error"><p>'. sprintf( __('Theme - %s.css stylesheet is missing.', 'wp-posts-carousel'), $theme ) .'</p></div>'; 
+                        return '<div class="error"><p>'. sprintf( __('Theme - %s.css stylesheet is missing.', 'wp-posts-carousel'), $theme_name ) .'</p></div>'; 
                 }        
         
                 /*
@@ -119,8 +120,7 @@ class WpPostsCarouselGenerator {
                  * prepare sql query
                  */
                 $sql_array = array('post_type'      =>  $post_type,               
-                                   'post_status'    =>  'publish',
-                                   'order'          =>  $params['ordering'],
+                                   'post_status'    =>  'publish',                                   
                                    'posts_per_page' =>  $params['all_items'],
                                    'no_found_rows'  =>  1,
                                    //'post__not_in' =>  array($post->ID) //exclude current post
@@ -128,7 +128,7 @@ class WpPostsCarouselGenerator {
 
                 $sql_i = 0;
                 if ($params['categories'] != "" || $params['tags'] != "") {
-                    $sql_array['tax_query'] = array('relation' => 'AND', array());
+                        $sql_array['tax_query'] = array('relation' => 'AND', array());
                 }
                 
                 if ($params['categories'] != "") {
@@ -147,13 +147,50 @@ class WpPostsCarouselGenerator {
                                                             );
                 }                
 
-                $sql_array['orderby'] = 'date';    
-                
+                switch($params['show_only']) {
+                        case "id": 
+                                $sql_array['orderby'] = 'ID';
+                                break;   
+                        
+                        case "newest":
+                                $sql_array['orderby'] = 'post_date';
+                                break;  
+                        case "title":
+                        default:
+                                $sql_array['orderby'] = 'post_title';
+                                break;
+                }
+
+                if( in_array($params['ordering'], array('asc', 'desc')) ) {
+                        $sql_array['order'] = $params['ordering'];
+                }else {                    
+                        $sql_array['order'] = 'desc';
+                } 
                 /*
                  * end sql query
                  */
+                
+                /*
+                 * display popular posts from Wordrpess Popular Posts
+                 * period: 1 MONTH from now
+                 */
+                if( $params['show_only'] === "popular" && is_plugin_active( 'wordpress-popular-posts/wordpress-popular-posts.php' ) ) {
+                        /*
+                         * include custom queries
+                         */
+                        require_once("includes/wp-posts-carousel-popular-posts-query.class.php");
+                        $loop = new WP_Posts_Carousel_Popular_Posts_Query($sql_array);
+                } else {
+                        $loop = new WP_Query($sql_array);
+                }                
 
-                $loop = new WP_Query($sql_array);
+
+                /*
+                 * if random, we shuffle array
+                 */
+                if($params['ordering'] === "random") {
+                        shuffle($loop->posts);
+                }
                 
                 /*
                  * check if there are more then one item

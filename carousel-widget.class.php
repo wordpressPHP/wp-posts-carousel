@@ -82,19 +82,37 @@ function form($instance) {
             }
           ?>
         </select>
-    </p>       
+    </p> 
+   
     <p>
         <label for="<?php echo $this->get_field_id("all_items"); ?>"><?php _e("Posts limit", "wp-posts-carousel"); ?>:</label>
         <br />
         <input size="5" id="<?php echo $this->get_field_id("all_items"); ?>" name="<?php echo $this->get_field_name("all_items"); ?>" type="text" value="<?php echo esc_attr($instance["all_items"]); ?>" />
-    </p>     
+    </p> 
+    <p>
+        <label for="<?php echo $this->get_field_id("show_only"); ?>"><?php _e("Show only", "wp-posts-carousel"); ?>:</label>
+        <br />
+        <select name="<?php echo $this->get_field_name("show_only"); ?>" id="<?php echo $this->get_field_id("show_only"); ?>" class="select">
+          <?php            
+            $show_list = array("id" => __("By id", "wp-posts-carousel"),
+                               "title" => __("By title", "wp-posts-carousel"),
+                               "newest" => __("Newset", "wp-posts-carousel"),
+                               "popular" => __("Popular", "wp-posts-carousel")                               
+                              );
+            foreach($show_list as $key => $list) {
+                echo "<option value=\"".$key."\" ". (esc_attr($instance["show_only"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
+            }
+          ?>
+        </select>
+    </p>      
     <p>
         <label for="<?php echo $this->get_field_id("ordering"); ?>"><?php _e("Ordering", "wp-posts-carousel"); ?>:</label>
         <br />
         <select name="<?php echo $this->get_field_name("ordering"); ?>" id="<?php echo $this->get_field_id("ordering"); ?>" class="select">
           <?php            
             $ordering_list = array("asc" => __("Ascending", "wp-posts-carousel"),
-                                   "desc" => __("Descending", "wp-posts-carousel")
+                                   "desc" => __("Descending", "wp-posts-carousel"),
+                                   "random" => __("Random", "wp-posts-carousel")
                                   );
             foreach($ordering_list as $key => $list) {
                 echo "<option value=\"" .$key ."\" ". (esc_attr($instance["ordering"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
@@ -162,10 +180,10 @@ function form($instance) {
         <br />
         <select name="<?php echo $this->get_field_name("image_source"); ?>" id="<?php echo $this->get_field_id("image_source"); ?>" class="select">
             <?php            
-              $source_list = array("thumbnail"  => __("Thumbnail"),
-                                   "medium"     => __("Medium"),
-                                   "large"      => __("Large"),
-                                   "full"       => __("Full"),                  
+              $source_list = array("thumbnail"  => __("Thumbnail", "wp-posts-carousel"),
+                                   "medium"     => __("Medium", "wp-posts-carousel"),
+                                   "large"      => __("Large", "wp-posts-carousel"),
+                                   "full"       => __("Full", "wp-posts-carousel"),                  
                                   );
               foreach($source_list as $key => $list) {
                     echo "<option value=\"". $key ."\" ". (esc_attr($instance["image_source"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";

@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Posts Carousel\n"
-"POT-Creation-Date: 2015-05-21 20:34+0100\n"
-"PO-Revision-Date: 2015-05-21 20:37+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2015-05-28 14:39+0100\n"
+"PO-Revision-Date: 2015-05-28 14:39+0100\n"
+"Last-Translator: Marcin Gierada <m.gierada@teastudio.pl>\n"
 "Language-Team: info@teastudio.pl\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8\n"
+"X-Generator: Poedit 1.6.10\n"
 "X-Poedit-Basepath: ../../\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
@@ -17,29 +17,29 @@ msgstr ""
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: carousel-generator.class.php:110
+#: carousel-generator.class.php:111
 #, php-format
 msgid "Theme - %s.css stylesheet is missing."
 msgstr "Plik - %s.css szablonu nie został znaleziony."
 
-#: carousel-generator.class.php:207
+#: carousel-generator.class.php:244
 #, php-format
 msgid "View all items in %s"
 msgstr "Zobacz więcej z %s"
 
-#: carousel-generator.class.php:233 carousel-generator.class.php:255
+#: carousel-generator.class.php:270 carousel-generator.class.php:292
 msgid "Read more"
 msgstr "Czytaj więcej"
 
-#: carousel-generator.class.php:255
+#: carousel-generator.class.php:292
 msgid "read more"
 msgstr "czytaj więcej"
 
-#: carousel-generator.class.php:327
+#: carousel-generator.class.php:364
 msgid "previous"
 msgstr "poprzedni"
 
-#: carousel-generator.class.php:327
+#: carousel-generator.class.php:364
 msgid "next"
 msgstr "następny"
 
@@ -49,7 +49,7 @@ msgstr "Wyświetla karuzelę wpisów"
 
 #: carousel-widget.class.php:18
 msgid "WP Posts Carousel"
-msgstr ""
+msgstr "Wyświetla karuzelę wpisów"
 
 #: carousel-widget.class.php:53
 msgid "Title"
@@ -67,171 +67,195 @@ msgstr "Styl"
 msgid "Post type"
 msgstr "Typ wpisu"
 
-#: carousel-widget.class.php:87 shortcode-generator.php:72
+#: carousel-widget.class.php:88 shortcode-generator.php:72
 msgid "Posts limit"
 msgstr "Limit postów"
 
-#: carousel-widget.class.php:92 shortcode-generator.php:78
+#: carousel-widget.class.php:93 shortcode-generator.php:78
+msgid "Show only"
+msgstr "Pokaż tylko"
+
+#: carousel-widget.class.php:97 shortcode-generator.php:81
+msgid "By id"
+msgstr "Według id"
+
+#: carousel-widget.class.php:98 shortcode-generator.php:82
+msgid "By title"
+msgstr "Po tytule"
+
+#: carousel-widget.class.php:99 shortcode-generator.php:83
+msgid "Newset"
+msgstr "Najnowsze"
+
+#: carousel-widget.class.php:100 shortcode-generator.php:84
+msgid "Popular"
+msgstr "Popularne"
+
+#: carousel-widget.class.php:109 shortcode-generator.php:89
 msgid "Ordering"
 msgstr "Kolejność"
 
-#: carousel-widget.class.php:96 shortcode-generator.php:81
+#: carousel-widget.class.php:113 shortcode-generator.php:92
 msgid "Ascending"
 msgstr "Rosnąco"
 
-#: carousel-widget.class.php:97 shortcode-generator.php:82
+#: carousel-widget.class.php:114 shortcode-generator.php:93
 msgid "Descending"
 msgstr "Malejąco"
 
-#: carousel-widget.class.php:106 shortcode-generator.php:87
+#: carousel-widget.class.php:115 shortcode-generator.php:94
+msgid "Random"
+msgstr "Losowa kolejność"
+
+#: carousel-widget.class.php:124 shortcode-generator.php:99
 msgid "Category IDs"
 msgstr "Id kategorii"
 
-#: carousel-widget.class.php:109 shortcode-generator.php:91
+#: carousel-widget.class.php:127 shortcode-generator.php:103
 msgid "Please enter Category IDs with comma seperated."
 msgstr "Podaj id wybranych kategorii rozdzielając je przecinkiem."
 
-#: carousel-widget.class.php:112 shortcode-generator.php:95
+#: carousel-widget.class.php:130 shortcode-generator.php:107
 msgid "Tag IDs"
 msgstr "Id tagów"
 
-#: carousel-widget.class.php:115 shortcode-generator.php:99
+#: carousel-widget.class.php:133 shortcode-generator.php:111
 msgid "Please enter Tag IDs with comma seperated."
 msgstr "Podaj id wybranych tagów rodzielając je przecinkiem."
 
-#: carousel-widget.class.php:119 shortcode-generator.php:106
+#: carousel-widget.class.php:137 shortcode-generator.php:118
 msgid "Post options"
 msgstr "Opcje wpisów"
 
-#: carousel-widget.class.php:123 shortcode-generator.php:110
+#: carousel-widget.class.php:141 shortcode-generator.php:122
 msgid "Show title"
 msgstr "Pokaż tytuł"
 
-#: carousel-widget.class.php:127 shortcode-generator.php:116
+#: carousel-widget.class.php:145 shortcode-generator.php:128
 msgid "Show created date"
 msgstr "Pokaż datę utworzenia"
 
-#: carousel-widget.class.php:130 shortcode-generator.php:122
+#: carousel-widget.class.php:148 shortcode-generator.php:134
 msgid "Show description"
 msgstr "Pokaż opis"
 
-#: carousel-widget.class.php:134 shortcode-generator.php:125
+#: carousel-widget.class.php:152 shortcode-generator.php:137
 msgid "No"
 msgstr "Brak"
 
-#: carousel-widget.class.php:135 shortcode-generator.php:126
+#: carousel-widget.class.php:153 shortcode-generator.php:138
 msgid "Excerpt"
 msgstr "Zajawka"
 
-#: carousel-widget.class.php:136 shortcode-generator.php:127
+#: carousel-widget.class.php:154 shortcode-generator.php:139
 msgid "Full content"
 msgstr "Pełny opis"
 
-#: carousel-widget.class.php:146 shortcode-generator.php:132
+#: carousel-widget.class.php:164 shortcode-generator.php:144
 msgid "Show category"
 msgstr "Pokaż kategorię"
 
-#: carousel-widget.class.php:150 shortcode-generator.php:138
+#: carousel-widget.class.php:168 shortcode-generator.php:150
 msgid "Show tags"
 msgstr "Pokaż tagi"
 
-#: carousel-widget.class.php:154 shortcode-generator.php:144
+#: carousel-widget.class.php:172 shortcode-generator.php:156
 msgid "Show more button"
 msgstr "Pokaż przycisk \"więcej\""
 
-#: carousel-widget.class.php:158 shortcode-generator.php:150
+#: carousel-widget.class.php:176 shortcode-generator.php:162
 msgid "Show featured image"
 msgstr "Pokaż obrazek wyróżniający"
 
-#: carousel-widget.class.php:161 shortcode-generator.php:156
+#: carousel-widget.class.php:179 shortcode-generator.php:168
 msgid "Image source"
 msgstr "Wielkość obrazka"
 
-#: carousel-widget.class.php:165 shortcode-generator.php:159
+#: carousel-widget.class.php:183 shortcode-generator.php:171
 msgid "Thumbnail"
-msgstr ""
+msgstr "Miniatura"
 
-#: carousel-widget.class.php:166 shortcode-generator.php:160
+#: carousel-widget.class.php:184 shortcode-generator.php:172
 msgid "Medium"
-msgstr ""
+msgstr "Średni"
 
-#: carousel-widget.class.php:167 shortcode-generator.php:161
+#: carousel-widget.class.php:185 shortcode-generator.php:173
 msgid "Large"
-msgstr ""
+msgstr "Duży"
 
-#: carousel-widget.class.php:168 shortcode-generator.php:162
+#: carousel-widget.class.php:186 shortcode-generator.php:174
 msgid "Full"
-msgstr ""
+msgstr "Pełny"
 
-#: carousel-widget.class.php:177 shortcode-generator.php:167
+#: carousel-widget.class.php:195 shortcode-generator.php:179
 msgid "Image height"
 msgstr "Wysokość zdjęcia"
 
-#: carousel-widget.class.php:182 shortcode-generator.php:173
+#: carousel-widget.class.php:200 shortcode-generator.php:185
 msgid "Image width"
 msgstr "Szerokość zdjęcia"
 
-#: carousel-widget.class.php:189 shortcode-generator.php:183
+#: carousel-widget.class.php:207 shortcode-generator.php:195
 msgid "Carousel options"
 msgstr "Opcje wyświetlania"
 
-#: carousel-widget.class.php:192 shortcode-generator.php:187
+#: carousel-widget.class.php:210 shortcode-generator.php:199
 msgid "Items to show"
 msgstr "Wpisów do wyświetlenia"
 
-#: carousel-widget.class.php:197 shortcode-generator.php:193
+#: carousel-widget.class.php:215 shortcode-generator.php:205
 msgid "Slide by"
 msgstr "Przesuń o"
 
-#: carousel-widget.class.php:201 shortcode-generator.php:197
+#: carousel-widget.class.php:219 shortcode-generator.php:209
 msgid "Number of elements to slide."
 msgstr "Liczba elementów do przesuniecia."
 
-#: carousel-widget.class.php:204 shortcode-generator.php:201
+#: carousel-widget.class.php:222 shortcode-generator.php:213
 msgid "Margin"
 msgstr "Margines"
 
-#: carousel-widget.class.php:210 shortcode-generator.php:209
+#: carousel-widget.class.php:228 shortcode-generator.php:221
 msgid "Inifnity loop"
 msgstr "Pętla nieskończona"
 
-#: carousel-widget.class.php:212 shortcode-generator.php:213
+#: carousel-widget.class.php:230 shortcode-generator.php:225
 msgid "Duplicate last and first items to get loop illusion."
 msgstr "Powiela ostatni i pierwszy element, aby uzyskać efekt pętli."
 
-#: carousel-widget.class.php:216 shortcode-generator.php:217
+#: carousel-widget.class.php:234 shortcode-generator.php:229
 msgid "Auto play"
 msgstr "Auto start"
 
-#: carousel-widget.class.php:220 shortcode-generator.php:223
+#: carousel-widget.class.php:238 shortcode-generator.php:235
 msgid "Pause on mouse hover"
 msgstr "Zatrzymaj po najechaniu kursorem"
 
-#: carousel-widget.class.php:223 shortcode-generator.php:229
+#: carousel-widget.class.php:241 shortcode-generator.php:241
 msgid "Autoplay interval timeout"
 msgstr "Limit czasu autoodtwarzania"
 
-#: carousel-widget.class.php:229
+#: carousel-widget.class.php:247
 msgid "show \"next\" and \"prev\" buttons"
 msgstr "Pokaż przyciski \"następny\" i \"poprzedni\""
 
-#: carousel-widget.class.php:232 shortcode-generator.php:241
+#: carousel-widget.class.php:250 shortcode-generator.php:253
 msgid "Navigation speed"
 msgstr "Szybkość przewijania"
 
-#: carousel-widget.class.php:238 shortcode-generator.php:247
+#: carousel-widget.class.php:256 shortcode-generator.php:259
 msgid "Show dots navigation"
 msgstr "Pokaż nawigację z kropek"
 
-#: carousel-widget.class.php:241 shortcode-generator.php:253
+#: carousel-widget.class.php:259 shortcode-generator.php:265
 msgid "Dots speed"
 msgstr "Szybkość przewijania menu z kropkami"
 
-#: carousel-widget.class.php:247 shortcode-generator.php:259
+#: carousel-widget.class.php:265 shortcode-generator.php:271
 msgid "Delays loading of images"
 msgstr "Opóźnij ładowanie zdjęć"
 
-#: carousel-widget.class.php:249 shortcode-generator.php:263
+#: carousel-widget.class.php:267 shortcode-generator.php:275
 msgid ""
 "Images outside of viewport won't be loaded before user scrolls to them. "
 "Great for mobile devices to speed up page loadings."
@@ -239,67 +263,80 @@ msgstr ""
 "Zdjęcia poza widokiem zostaną załadowane dopiero po przewinięciu do nich. "
 "Dobre rozwiązanie dla urządzeń mobilnych, aby przyspieszyć ładowanie strony."
 
-#: carousel-widget.class.php:253 shortcode-generator.php:267
+#: carousel-widget.class.php:271 shortcode-generator.php:279
 msgid "Mouse events"
 msgstr "Zdarzenia myszy"
 
-#: carousel-widget.class.php:257 shortcode-generator.php:273
+#: carousel-widget.class.php:275 shortcode-generator.php:285
 msgid "Mousewheel scrolling"
 msgstr "Przewijanie kółkiem myszy"
 
-#: carousel-widget.class.php:261 shortcode-generator.php:279
+#: carousel-widget.class.php:279 shortcode-generator.php:291
 msgid "Touch events"
 msgstr "Zdarzenia dotykowe"
 
-#: carousel-widget.class.php:264 shortcode-generator.php:285
+#: carousel-widget.class.php:282 shortcode-generator.php:297
 msgid "Animation"
 msgstr "Efekt animacji"
 
-#: shortcode-generator.php:205
+#: shortcode-generator.php:217
 msgid "Margin between items."
 msgstr "Odstęp między elementami."
 
-#: shortcode-generator.php:235
+#: shortcode-generator.php:247
 msgid "Show \"next\" and \"prev\" buttons"
 msgstr "pokaż przyciski \"następny\" i \"poprzedni\""
 
-#: shortcode-generator.php:333
+#: shortcode-generator.php:345
 msgid "Insert Shortcode"
 msgstr "Wstaw krótki kod"
 
-#: wp-posts-carousel.php:205
+#: wp-posts-carousel.php:203
+msgid ""
+"The <strong>WP Posts Carousel</strong> plugin require <a href=\"https://"
+"wordpress.org/plugins/wordpress-popular-posts/\" target=\"_blank\" title="
+"\"WordPress Popular Posts\">WordPress Popular Posts</a> plugin to display "
+"popular posts in carousel. Please install or active this plugin."
+msgstr ""
+"<strong>WP Posts Carousel</strong> wymaga dodatkowej wtyczki -<a href="
+"\"https://wordpress.org/plugins/wordpress-popular-posts/\" target=\"_blank\" "
+"title=\"WordPress Popular Posts\">WordPress Popular Posts</a> do "
+"wyświetlania popularnych wpisów w karuzeli. Proszę zainstalować lub "
+"aktywować tą wtyczkę."
+
+#: wp-posts-carousel.php:213
 msgid "Version"
 msgstr "Wersja"
 
-#: wp-posts-carousel.php:209
+#: wp-posts-carousel.php:217
 msgid "Need support?"
 msgstr "Potrzebujesz pomocy?"
 
-#: wp-posts-carousel.php:213
+#: wp-posts-carousel.php:221
 msgid "If you are having problems with this plugin, please contact by"
 msgstr "Jeśli maszF problemy z działaiem tej wtyczki, napisz"
 
-#: wp-posts-carousel.php:214
+#: wp-posts-carousel.php:222
 msgid "For more information about this plugin, visit"
 msgstr "Więcej informacji o wtyczce znajdziesz na"
 
-#: wp-posts-carousel.php:214
+#: wp-posts-carousel.php:222
 msgid "plugin page"
 msgstr "stronie domowej"
 
-#: wp-posts-carousel.php:230
+#: wp-posts-carousel.php:238
 msgid "Main settings"
 msgstr "Główne ustawienia"
 
-#: wp-posts-carousel.php:236
+#: wp-posts-carousel.php:244
 msgid "Font Awesome"
-msgstr ""
+msgstr "Dołącz bibliotekę Font Awesome"
 
-#: wp-posts-carousel.php:240
+#: wp-posts-carousel.php:248
 msgid "Include Font Awesome"
 msgstr "Dołącz bibliotekę Font Awesome"
 
-#: wp-posts-carousel.php:242
+#: wp-posts-carousel.php:250
 msgid ""
 "Select this option if you would like to include <a href=\"http://fortawesome."
 "github.io/Font-Awesome/\" target=\"_blank\"><b>Font Awesome</b></a> "

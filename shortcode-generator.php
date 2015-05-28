@@ -67,7 +67,7 @@ function insert_shortcode() {
                 ?>          
                 </select>	
             </td>
-        </tr>         
+        </tr>        
         <tr>
             <td align="left"><?php _e('Posts limit', 'wp-posts-carousel'); ?>:</td>
             <td>
@@ -75,11 +75,23 @@ function insert_shortcode() {
             </td>
         </tr>
         <tr>
+            <td align="left"><?php _e('Show only', 'wp-posts-carousel'); ?>:</td>
+            <td>
+                <select name="show_only" id="show_only" class="select">
+                    <option value="id"><?php _e("By id", 'wp-posts-carousel') ?></option>
+                    <option value="title"><?php _e("By title", 'wp-posts-carousel') ?></option>
+                    <option value="newest"><?php _e("Newset", 'wp-posts-carousel') ?></option>  
+                    <option value="popular"><?php _e("Popular", 'wp-posts-carousel') ?></option>                    
+                </select>	
+            </td>
+        </tr>          
+        <tr>
             <td align="left"><?php _e('Ordering', 'wp-posts-carousel'); ?>:</td>
             <td>
                 <select name="ordering" id="ordering" class="select">
                     <option value="asc"><?php _e("Ascending", 'wp-posts-carousel') ?></option>
-                    <option value="desc"><?php _e("Descending", 'wp-posts-carousel') ?></option>              
+                    <option value="desc"><?php _e("Descending", 'wp-posts-carousel') ?></option> 
+                    <option value="random"><?php _e("Random", 'wp-posts-carousel') ?></option>   
                 </select>	
             </td>
         </tr>   
@@ -156,10 +168,10 @@ function insert_shortcode() {
             <td align="left"><?php echo _e('Image source', 'wp-posts-carousel'); ?>:</td>
             <td>
                 <select name="image_source" id="image_source" class="select">
-                    <option value="thumbnail"><?php _e("Thumbnail") ?></option>
-                    <option value="medium"><?php _e("Medium") ?></option>
-                    <option value="large"><?php _e("Large") ?></option>
-                    <option value="full"><?php _e("Full") ?></option>
+                    <option value="thumbnail"><?php _e("Thumbnail", "wp-posts-carousel") ?></option>
+                    <option value="medium"><?php _e("Medium", "wp-posts-carousel") ?></option>
+                    <option value="large"><?php _e("Large", "wp-posts-carousel") ?></option>
+                    <option value="full"><?php _e("Full", "wp-posts-carousel") ?></option>
                 </select>
             </td>
         </tr>	
