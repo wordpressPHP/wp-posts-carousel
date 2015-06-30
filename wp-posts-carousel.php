@@ -3,7 +3,7 @@
 Plugin Name: Wp Posts Carousel
 Plugin URI: http://www.teastudio.pl/produkt/wp-posts-carousel/
 Description: WP Posts Carousel is a widget to show posts in carousel by <a href="http://www.owlcarousel.owlgraphic.com/" target="_blank" title="OWL Carousel homepage">OWL Carousel</a>.
-Version: 1.0.6
+Version: 1.0.7
 Author: Marcin Gierada
 Author URI: http://www.teastudio.pl/
 Author Email: m.gierada@teastudio.pl
@@ -34,7 +34,7 @@ function wp_posts_carousel_init() {
  */
 $WP_Posts_Carousel = new WP_Posts_Carousel();
 class WP_Posts_Carousel {
-        const VERSION = '1.0.6';
+        const VERSION = '1.0.7';
         private $plugin_name = 'WP Posts Carousel';
         private $plugin_slug = 'wp-posts-carousel';
         private $options = array();
@@ -46,6 +46,11 @@ class WP_Posts_Carousel {
                 $this->options = array_merge( $this->get_defaults(), get_option($this->plugin_slug . '_options') ? get_option($this->plugin_slug . '_options') : array() );
                 
 
+                /*
+                 * include utils
+                 */
+                require_once("includes/utils.class.php");
+                
                 //include required files based on admin or site
                 if (is_admin()) {     
                         /*
@@ -118,10 +123,11 @@ class WP_Posts_Carousel {
          * registers the scripts and styles
          */
         function wp_posts_carousel_register_scripts() {
-                wp_register_script("jquery-owl.carousel", plugin_dir_url(__FILE__)."owl.carousel/owl.carousel.js", "jquery");	
-                wp_register_script("jquery-mousewheel", plugin_dir_url(__FILE__)."owl.carousel/jquery.mousewheel.min.js", array("jquery", "jquery-owl.carousel", "jquery-effects-core"));	
-                wp_register_style("owl.carousel.style", plugin_dir_url(__FILE__). "owl.carousel/assets/owl.carousel.css"); 
+                wp_register_script("jquery-owl.carousel", plugin_dir_url(__FILE__) . "owl.carousel/owl.carousel.js");	
+                wp_register_script("jquery-mousewheel", plugin_dir_url(__FILE__) . "owl.carousel/jquery.mousewheel.min.js");	
+                wp_register_style("owl.carousel.style", plugin_dir_url(__FILE__) . "owl.carousel/assets/owl.carousel.css"); 
 
+                wp_enqueue_script("jquery-owl.carousel");
                 wp_enqueue_script("jquery-mousewheel");
                 wp_enqueue_style("owl.carousel.style");
                 
@@ -200,7 +206,7 @@ function settings_page() {
          */
         include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
         if ( !is_plugin_active( 'wordpress-popular-posts/wordpress-popular-posts.php' ) ) {  
-            echo '<div class="error"><p>'. __('The <strong>WP Posts Carousel</strong> plugin require <a href="https://wordpress.org/plugins/wordpress-popular-posts/" target="_blank" title="WordPress Popular Posts">WordPress Popular Posts</a> plugin to display popular posts in carousel. Please install or active this plugin.', $this->plugin_slug) .'</p></div>'; 
+            echo '<div class="error"><p>'. __('The <strong>WP Posts Carousel</strong> plugin may require <a href="https://wordpress.org/plugins/wordpress-popular-posts/" target="_blank" title="WordPress Popular Posts">WordPress Popular Posts</a> plugin to display popular posts in carousel. Please install or active this plugin.', $this->plugin_slug) .'</p></div>'; 
         }  
 ?>
 <div class="wrap">

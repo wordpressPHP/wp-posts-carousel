@@ -141,7 +141,7 @@ class WpPostsCarouselGenerator {
                 
                 if ($params['tags'] != "") {
                         $sql_array['tax_query'][$sql_i++] = array('taxonomy'  =>  $post_type_tag,
-                                                                  'field'     =>  'id',
+                                                                  'field'     =>  'name',
                                                                   'terms'     =>  explode(',', $params['tags']),
                                                                   'operator'  => 'IN'
                                                             );
@@ -174,6 +174,7 @@ class WpPostsCarouselGenerator {
                  * display popular posts from Wordrpess Popular Posts
                  * period: 1 MONTH from now
                  */
+                include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
                 if( $params['show_only'] === "popular" && is_plugin_active( 'wordpress-popular-posts/wordpress-popular-posts.php' ) ) {
                         /*
                          * include custom queries
@@ -183,7 +184,6 @@ class WpPostsCarouselGenerator {
                 } else {
                         $loop = new WP_Query($sql_array);
                 }                
-
 
                 /*
                  * if random, we shuffle array

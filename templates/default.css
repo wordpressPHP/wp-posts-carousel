@@ -2,7 +2,7 @@
 * default theme
 */
 .default-theme.wp-posts-carousel { overflow: hidden; }
-.default-theme.wp-posts-carousel .wp-posts-carousel-slide { padding: 1%; position: relative; margin-left: 2%; width: 95%; }
+.default-theme.wp-posts-carousel .wp-posts-carousel-slide { padding: 1%; position: relative; margin-left: 2%; width: 95%; overflow: hidden; }
 .default-theme.wp-posts-carousel .wp-posts-carousel-container { box-shadow: 0px 1px 2px #CCC; background: none repeat scroll 0% 0% #FFF; padding: 10px; transition: all 0.3s ease 0s; }
 .default-theme.wp-posts-carousel .wp-posts-carousel-container:hover { box-shadow: 0px 1px 3px 0px #6E95B6; }
 /*

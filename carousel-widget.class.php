@@ -62,12 +62,10 @@ function form($instance) {
         <br />
         <select name="<?php echo $this->get_field_name("template"); ?>" id="<?php echo $this->get_field_id("template"); ?>" class="select">
             <?php            
-              $files_list = scandir(plugin_dir_path(__FILE__)."templates/");
-              unset($files_list[0]);
-              unset($files_list[1]);
-              foreach($files_list as $list) {
-                echo "<option value=\"".$list."\" ". (esc_attr($instance["template"]) == $list ? "selected=\"selected\"" : null) .">". $list ."</option>";
-              }
+                $files_list = Utils::getTemplates();      
+                foreach($files_list as $list) {
+                    echo "<option value=\"".$list."\" ". (esc_attr($instance["template"]) == $list ? "selected=\"selected\"" : null) .">". $list ."</option>";
+                }
             ?>
         </select>
     </p> 
@@ -76,10 +74,10 @@ function form($instance) {
         <br />
         <select name="<?php echo $this->get_field_name("post_type"); ?>" id="<?php echo $this->get_field_id("post_type"); ?>" class="select">
           <?php          
-            $taxonomies = get_post_types(array('public' => 'true', 'show_in_nav_menus' => true), 'objects');
-            foreach($taxonomies as $key => $type) {
-                echo "<option value=\"" .$key ."\" ". (esc_attr($instance["post_type"]) == $key ? 'selected="selected"' : null) .">". $type->label ."</option>";
-            }
+                $taxonomies = Utils::getTaxonomies();
+                foreach($taxonomies as $key => $type) {
+                    echo "<option value=\"" .$key ."\" ". (esc_attr($instance["post_type"]) == $key ? 'selected="selected"' : null) .">". $type->label ."</option>";
+                }
           ?>
         </select>
     </p> 
@@ -93,15 +91,11 @@ function form($instance) {
         <label for="<?php echo $this->get_field_id("show_only"); ?>"><?php _e("Show only", "wp-posts-carousel"); ?>:</label>
         <br />
         <select name="<?php echo $this->get_field_name("show_only"); ?>" id="<?php echo $this->get_field_id("show_only"); ?>" class="select">
-          <?php            
-            $show_list = array("id" => __("By id", "wp-posts-carousel"),
-                               "title" => __("By title", "wp-posts-carousel"),
-                               "newest" => __("Newset", "wp-posts-carousel"),
-                               "popular" => __("Popular", "wp-posts-carousel")                               
-                              );
-            foreach($show_list as $key => $list) {
-                echo "<option value=\"".$key."\" ". (esc_attr($instance["show_only"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
-            }
+          <?php                 
+                $show_list = Utils::getShows();
+                foreach($show_list as $key => $list) {
+                    echo "<option value=\"".$key."\" ". (esc_attr($instance["show_only"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
+                }
           ?>
         </select>
     </p>      
@@ -110,13 +104,10 @@ function form($instance) {
         <br />
         <select name="<?php echo $this->get_field_name("ordering"); ?>" id="<?php echo $this->get_field_id("ordering"); ?>" class="select">
           <?php            
-            $ordering_list = array("asc" => __("Ascending", "wp-posts-carousel"),
-                                   "desc" => __("Descending", "wp-posts-carousel"),
-                                   "random" => __("Random", "wp-posts-carousel")
-                                  );
-            foreach($ordering_list as $key => $list) {
-                echo "<option value=\"" .$key ."\" ". (esc_attr($instance["ordering"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
-            }
+                $ordering_list = Utils::getOrderings();
+                foreach($ordering_list as $key => $list) {
+                    echo "<option value=\"" .$key ."\" ". (esc_attr($instance["ordering"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
+                }
           ?>
         </select>
     </p>    
@@ -127,10 +118,10 @@ function form($instance) {
         <small><?php _e("Please enter Category IDs with comma seperated.", "wp-posts-carousel") ?></small>
     </p> 
     <p>
-        <label for="<?php echo $this->get_field_id("tags"); ?>"><?php _e("Tag IDs", "wp-posts-carousel"); ?>:</label>
-        <input class="widefat" id="<?php echo $this->get_field_id("tags"); ?>" name="<?php echo $this->get_field_name("tags"); ?>" type="text" value="<?php echo esc_attr($instance["tags"]); ?>" />
+        <label for="<?php echo $this->get_field_id("tags"); ?>"><?php _e("Tag names", "wp-posts-carousel"); ?>:</label>
+        <textarea class="widefat" id="<?php echo $this->get_field_id("tags"); ?>" name="<?php echo $this->get_field_name("tags"); ?>"><?php echo esc_attr($instance["tags"]); ?></textarea>
         <br />
-        <small><?php _e("Please enter Tag IDs with comma seperated.", "wp-posts-carousel") ?></small>
+        <small><?php _e("Please enter Tag names with comma seperated.", "wp-posts-carousel") ?></small>
     </p>     
     
     <p>
@@ -149,13 +140,10 @@ function form($instance) {
         <br />
         <select name="<?php echo $this->get_field_name("show_description"); ?>" id="<?php echo $this->get_field_id("show_description"); ?>" class="select">
           <?php            
-            $description_list = array("false" => __("No", "wp-posts-carousel"),
-                                      "excerpt" => __("Excerpt", "wp-posts-carousel"),
-                                      "content" => __("Full content", "wp-posts-carousel")
-                                     );
-            foreach($description_list as $key => $list) {
-                echo "<option value=\"" .$key ."\" ". (esc_attr($instance["show_description"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
-            }
+                $description_list = Utils::getDescriptions();
+                foreach($description_list as $key => $list) {
+                    echo "<option value=\"" .$key ."\" ". (esc_attr($instance["show_description"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
+                }
           ?>
         </select>
     </p>  
@@ -180,14 +168,10 @@ function form($instance) {
         <br />
         <select name="<?php echo $this->get_field_name("image_source"); ?>" id="<?php echo $this->get_field_id("image_source"); ?>" class="select">
             <?php            
-              $source_list = array("thumbnail"  => __("Thumbnail", "wp-posts-carousel"),
-                                   "medium"     => __("Medium", "wp-posts-carousel"),
-                                   "large"      => __("Large", "wp-posts-carousel"),
-                                   "full"       => __("Full", "wp-posts-carousel"),                  
-                                  );
-              foreach($source_list as $key => $list) {
-                    echo "<option value=\"". $key ."\" ". (esc_attr($instance["image_source"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
-              }
+                $source_list = Utils::getSources();
+                foreach($source_list as $key => $list) {
+                      echo "<option value=\"". $key ."\" ". (esc_attr($instance["image_source"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
+                }
             ?>
         </select>
     </p>      
@@ -283,44 +267,10 @@ function form($instance) {
         <br />
         <select name="<?php echo $this->get_field_name("easing"); ?>" id="<?php echo $this->get_field_id("easing"); ?>" class="select">
             <?php            
-              $source_list = array("linear"             => "linear",
-                                   "swing"              => "swing",
-                                   "easeInQuad"         => "easeInQuad",
-                                   "easeOutQuad"        => "easeOutQuad",   
-                                   "easeInOutQuad"      => "easeInOutQuad",
-                                   "easeInCubic"        => "easeInCubic",
-                                   "easeOutCubic"       => "easeOutCubic",
-                                   "easeInOutCubic"     => "easeInOutCubic",
-                                   "easeInQuart"        => "easeInQuart",
-                                   "easeOutQuart"       => "easeOutQuart",
-                                   "easeInOutQuart"     => "easeInOutQuart",
-                                   "easeInQuint"        => "easeInQuint",
-                                   "easeOutQuint"       => "easeOutQuint",
-                                   "easeInOutQuint"     => "easeInOutQuint",
-                                   "easeInExpo"         => "easeInExpo",
-                                   "easeOutExpo"        => "easeOutExpo",
-                                   "easeInOutExpo"      => "easeInOutExpo",
-                                   "easeInSine"         => "easeInSine",
-                                   "easeOutSine"        => "easeOutSine",
-                                   "easeInOutSine"      => "easeInOutSine",
-                                   "easeInCirc"         => "easeInCirc",
-                                   "easeOutCirc"        => "easeOutCirc",
-                                   "easeInOutCirc"      => "easeInOutCirc",
-                                   "easeInElastic"      => "easeInElastic",
-                                   "easeOutElastic"     => "easeOutElastic",
-                                   "easeInOutElastic"   => "easeInOutElastic",
-                                   "easeInBack"         => "easeInBack",
-                                   "easeOutBack"        => "easeOutBack",
-                                   "easeInOutBack"      => "easeInOutBack",
-                                   "easeInBounce"       => "easeInBounce",
-                                   "easeOutBounce"      => "easeOutBounce",
-                                   "easeInOutBounce"    => "easeInOutBounce"                   
-                                  );
-
-             
-              foreach($source_list as $key => $list) {
-                    echo "<option value=\"". $key ."\" ". (esc_attr($instance["easing"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
-              }
+                    $animation_list = Utils::getAnimations();             
+                    foreach($animation_list as $key => $list) {
+                          echo "<option value=\"". $key ."\" ". (esc_attr($instance["easing"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
+                    }
             ?>
         </select>
     </p>     

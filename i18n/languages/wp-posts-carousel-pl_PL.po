@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Posts Carousel\n"
-"POT-Creation-Date: 2015-05-28 14:39+0100\n"
-"PO-Revision-Date: 2015-05-28 14:39+0100\n"
+"POT-Creation-Date: 2015-06-29 18:43+0200\n"
+"PO-Revision-Date: 2015-06-29 18:46+0200\n"
 "Last-Translator: Marcin Gierada <m.gierada@teastudio.pl>\n"
 "Language-Team: info@teastudio.pl\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.10\n"
-"X-Poedit-Basepath: ../../\n"
+"X-Generator: Poedit 1.8.2\n"
+"X-Poedit-Basepath: ../..\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -116,12 +116,12 @@ msgid "Please enter Category IDs with comma seperated."
 msgstr "Podaj id wybranych kategorii rozdzielając je przecinkiem."
 
 #: carousel-widget.class.php:130 shortcode-generator.php:107
-msgid "Tag IDs"
-msgstr "Id tagów"
+msgid "Tag names"
+msgstr "Nazwy tagów"
 
 #: carousel-widget.class.php:133 shortcode-generator.php:111
-msgid "Please enter Tag IDs with comma seperated."
-msgstr "Podaj id wybranych tagów rodzielając je przecinkiem."
+msgid "Please enter Tag names with comma seperated."
+msgstr "Podaj nazwy tagów rodzielając je przecinkiem."
 
 #: carousel-widget.class.php:137 shortcode-generator.php:118
 msgid "Post options"
@@ -291,52 +291,52 @@ msgstr "pokaż przyciski \"następny\" i \"poprzedni\""
 msgid "Insert Shortcode"
 msgstr "Wstaw krótki kod"
 
-#: wp-posts-carousel.php:203
+#: wp-posts-carousel.php:204
 msgid ""
-"The <strong>WP Posts Carousel</strong> plugin require <a href=\"https://"
+"The <strong>WP Posts Carousel</strong> plugin may require <a href=\"https://"
 "wordpress.org/plugins/wordpress-popular-posts/\" target=\"_blank\" title="
 "\"WordPress Popular Posts\">WordPress Popular Posts</a> plugin to display "
 "popular posts in carousel. Please install or active this plugin."
 msgstr ""
-"<strong>WP Posts Carousel</strong> wymaga dodatkowej wtyczki -<a href="
+"<strong>WP Posts Carousel</strong> może wymagać dodatkowej wtyczki -<a href="
 "\"https://wordpress.org/plugins/wordpress-popular-posts/\" target=\"_blank\" "
-"title=\"WordPress Popular Posts\">WordPress Popular Posts</a> do "
-"wyświetlania popularnych wpisów w karuzeli. Proszę zainstalować lub "
-"aktywować tą wtyczkę."
+"\"title=\"WordPress Popular Posts\">WordPress Popular Posts</a> tylko w "
+"przypadku kiedy chcesz wyświetlić listę popularnych wpisów w karuzeli. "
+"Proszę zainstalować lub aktywować tą wtyczkę."
 
-#: wp-posts-carousel.php:213
+#: wp-posts-carousel.php:214
 msgid "Version"
 msgstr "Wersja"
 
-#: wp-posts-carousel.php:217
+#: wp-posts-carousel.php:218
 msgid "Need support?"
 msgstr "Potrzebujesz pomocy?"
 
-#: wp-posts-carousel.php:221
+#: wp-posts-carousel.php:222
 msgid "If you are having problems with this plugin, please contact by"
 msgstr "Jeśli maszF problemy z działaiem tej wtyczki, napisz"
 
-#: wp-posts-carousel.php:222
+#: wp-posts-carousel.php:223
 msgid "For more information about this plugin, visit"
 msgstr "Więcej informacji o wtyczce znajdziesz na"
 
-#: wp-posts-carousel.php:222
+#: wp-posts-carousel.php:223
 msgid "plugin page"
 msgstr "stronie domowej"
 
-#: wp-posts-carousel.php:238
+#: wp-posts-carousel.php:239
 msgid "Main settings"
 msgstr "Główne ustawienia"
 
-#: wp-posts-carousel.php:244
+#: wp-posts-carousel.php:245
 msgid "Font Awesome"
 msgstr "Dołącz bibliotekę Font Awesome"
 
-#: wp-posts-carousel.php:248
+#: wp-posts-carousel.php:249
 msgid "Include Font Awesome"
 msgstr "Dołącz bibliotekę Font Awesome"
 
-#: wp-posts-carousel.php:250
+#: wp-posts-carousel.php:251
 msgid ""
 "Select this option if you would like to include <a href=\"http://fortawesome."
 "github.io/Font-Awesome/\" target=\"_blank\"><b>Font Awesome</b></a> "
@@ -345,3 +345,21 @@ msgstr ""
 "Zaznacz tą opcję jeśli chcesz dodać bibliotekę <a href=\"http://fortawesome."
 "github.io/Font-Awesome/\" target=\"_blank\"><b>Font Awesome</b></a> do "
 "szablonu.<br />Odznacz, jeśli już jej używasz na swojej stronie."
+
+#~ msgid "Tag IDs"
+#~ msgstr "Id tagów"
+
+#~ msgid "Please enter Tag IDs with comma seperated."
+#~ msgstr "Podaj id wybranych tagów rodzielając je przecinkiem."
+
+#~ msgid ""
+#~ "The <strong>WP Posts Carousel</strong> plugin require <a href=\"https://"
+#~ "wordpress.org/plugins/wordpress-popular-posts/\" target=\"_blank\" title="
+#~ "\"WordPress Popular Posts\">WordPress Popular Posts</a> plugin to display "
+#~ "popular posts in carousel. Please install or active this plugin."
+#~ msgstr ""
+#~ "<strong>WP Posts Carousel</strong> wymaga dodatkowej wtyczki -<a href="
+#~ "\"https://wordpress.org/plugins/wordpress-popular-posts/\" target=\"_blank"
+#~ "\" title=\"WordPress Popular Posts\">WordPress Popular Posts</a> do "
+#~ "wyświetlania popularnych wpisów w karuzeli. Proszę zainstalować lub "
+#~ "aktywować tą wtyczkę."

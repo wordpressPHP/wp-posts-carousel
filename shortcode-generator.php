@@ -45,9 +45,7 @@ function insert_shortcode() {
             <td>
                 <select name="template" id="template" class="select">
                     <?php
-                        $files_list = scandir(plugin_dir_path(__FILE__).'templates');
-                        unset($files_list[0]);
-                        unset($files_list[1]);
+                        $files_list = Utils::getTemplates();    
                         foreach($files_list as $filename) {
                             echo "<option value=\"".$filename."\">".$filename."</option>";
                         }
@@ -60,10 +58,10 @@ function insert_shortcode() {
             <td>
                 <select name="post_type" id="post_type" class="select">
                 <?php          
-                    $taxonomies = get_post_types(array('public' => 'true', 'show_in_nav_menus' => true), 'objects');
-                    foreach($taxonomies as $key => $type) {
-                        echo "<option value=\"" .$key ."\">". $type->label ."</option>";
-                    }
+                        $taxonomies = Utils::getTaxonomies();
+                        foreach($taxonomies as $key => $type) {
+                            echo "<option value=\"" .$key ."\">". $type->label ."</option>";
+                        }
                 ?>          
                 </select>	
             </td>
@@ -78,10 +76,12 @@ function insert_shortcode() {
             <td align="left"><?php _e('Show only', 'wp-posts-carousel'); ?>:</td>
             <td>
                 <select name="show_only" id="show_only" class="select">
-                    <option value="id"><?php _e("By id", 'wp-posts-carousel') ?></option>
-                    <option value="title"><?php _e("By title", 'wp-posts-carousel') ?></option>
-                    <option value="newest"><?php _e("Newset", 'wp-posts-carousel') ?></option>  
-                    <option value="popular"><?php _e("Popular", 'wp-posts-carousel') ?></option>                    
+                <?php          
+                        $show_list = Utils::getShows();
+                        foreach($show_list as $key => $list) {
+                            echo "<option value=\"".$key."\">". $list ."</option>";
+                        }
+                ?>                      
                 </select>	
             </td>
         </tr>          
@@ -89,9 +89,12 @@ function insert_shortcode() {
             <td align="left"><?php _e('Ordering', 'wp-posts-carousel'); ?>:</td>
             <td>
                 <select name="ordering" id="ordering" class="select">
-                    <option value="asc"><?php _e("Ascending", 'wp-posts-carousel') ?></option>
-                    <option value="desc"><?php _e("Descending", 'wp-posts-carousel') ?></option> 
-                    <option value="random"><?php _e("Random", 'wp-posts-carousel') ?></option>   
+                <?php          
+                        $ordering_list = Utils::getOrderings();
+                        foreach($ordering_list as $key => $list) {
+                            echo "<option value=\"".$key."\">". $list ."</option>";
+                        }
+                ?>   
                 </select>	
             </td>
         </tr>   
@@ -104,11 +107,11 @@ function insert_shortcode() {
             </td>
         </tr> 
         <tr>
-            <td align="left"><?php _e('Tag IDs', 'wp-posts-carousel'); ?>:</td>
+            <td align="left"><?php _e('Tag names', 'wp-posts-carousel'); ?>:</td>
             <td>
-                <input type="text" name="tags" id="tags" value="" size="30">
+                <textarea name="tags" id="tags" cols="30"></textarea>
                 <br />
-                <small><?php _e('Please enter Tag IDs with comma seperated.', 'wp-posts-carousel') ?></small>
+                <small><?php _e('Please enter Tag names with comma seperated.', 'wp-posts-carousel') ?></small>
             </td>
         </tr> 
 
@@ -134,9 +137,12 @@ function insert_shortcode() {
             <td align="left"><?php _e('Show description', 'wp-posts-carousel'); ?>:</td>
             <td>
                 <select name="show_description" id="show_description" class="select">
-                    <option value="false"><?php _e("No", 'wp-posts-carousel') ?></option>
-                    <option value="excerpt"><?php _e("Excerpt", 'wp-posts-carousel') ?></option>
-                    <option value="content"><?php _e("Full content", 'wp-posts-carousel') ?></option>              
+                <?php          
+                        $description_list = Utils::getDescriptions();
+                        foreach($description_list as $key => $list) {
+                            echo "<option value=\"".$key."\">". $list ."</option>";
+                        }
+                ?>                
                 </select>	
             </td>
         </tr>   
@@ -168,10 +174,12 @@ function insert_shortcode() {
             <td align="left"><?php echo _e('Image source', 'wp-posts-carousel'); ?>:</td>
             <td>
                 <select name="image_source" id="image_source" class="select">
-                    <option value="thumbnail"><?php _e("Thumbnail", "wp-posts-carousel") ?></option>
-                    <option value="medium"><?php _e("Medium", "wp-posts-carousel") ?></option>
-                    <option value="large"><?php _e("Large", "wp-posts-carousel") ?></option>
-                    <option value="full"><?php _e("Full", "wp-posts-carousel") ?></option>
+                <?php          
+                        $source_list = Utils::getSources();
+                        foreach($source_list as $key => $list) {
+                            echo "<option value=\"".$key."\">". $list ."</option>";
+                        }
+                ?>      
                 </select>
             </td>
         </tr>	
@@ -298,44 +306,10 @@ function insert_shortcode() {
             <td>
                 <select name="easing" id="easing" class="select">
                 <?php            
-                  $source_list = array("linear"             => "linear",
-                                       "swing"              => "swing",
-                                       "easeInQuad"         => "easeInQuad",
-                                       "easeOutQuad"        => "easeOutQuad",   
-                                       "easeInOutQuad"      => "easeInOutQuad",
-                                       "easeInCubic"        => "easeInCubic",
-                                       "easeOutCubic"       => "easeOutCubic",
-                                       "easeInOutCubic"     => "easeInOutCubic",
-                                       "easeInQuart"        => "easeInQuart",
-                                       "easeOutQuart"       => "easeOutQuart",
-                                       "easeInOutQuart"     => "easeInOutQuart",
-                                       "easeInQuint"        => "easeInQuint",
-                                       "easeOutQuint"       => "easeOutQuint",
-                                       "easeInOutQuint"     => "easeInOutQuint",
-                                       "easeInExpo"         => "easeInExpo",
-                                       "easeOutExpo"        => "easeOutExpo",
-                                       "easeInOutExpo"      => "easeInOutExpo",
-                                       "easeInSine"         => "easeInSine",
-                                       "easeOutSine"        => "easeOutSine",
-                                       "easeInOutSine"      => "easeInOutSine",
-                                       "easeInCirc"         => "easeInCirc",
-                                       "easeOutCirc"        => "easeOutCirc",
-                                       "easeInOutCirc"      => "easeInOutCirc",
-                                       "easeInElastic"      => "easeInElastic",
-                                       "easeOutElastic"     => "easeOutElastic",
-                                       "easeInOutElastic"   => "easeInOutElastic",
-                                       "easeInBack"         => "easeInBack",
-                                       "easeOutBack"        => "easeOutBack",
-                                       "easeInOutBack"      => "easeInOutBack",
-                                       "easeInBounce"       => "easeInBounce",
-                                       "easeOutBounce"      => "easeOutBounce",
-                                       "easeInOutBounce"    => "easeInOutBounce"                   
-                                      );
-
-
-                  foreach($source_list as $key => $list) {
-                        echo "<option value=\"".$key."\">".$list."</option>";
-                  }
+                    $animation_list = Utils::getAnimations(); 
+                    foreach($animation_list as $key => $list) {
+                          echo "<option value=\"".$key."\">".$list."</option>";
+                    }
                 ?>    
                 </select>
             </td>
