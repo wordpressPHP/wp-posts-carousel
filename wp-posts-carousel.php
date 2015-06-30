@@ -3,7 +3,7 @@
 Plugin Name: Wp Posts Carousel
 Plugin URI: http://www.teastudio.pl/produkt/wp-posts-carousel/
 Description: WP Posts Carousel is a widget to show posts in carousel by <a href="http://www.owlcarousel.owlgraphic.com/" target="_blank" title="OWL Carousel homepage">OWL Carousel</a>.
-Version: 1.0.7
+Version: 1.0.8
 Author: Marcin Gierada
 Author URI: http://www.teastudio.pl/
 Author Email: m.gierada@teastudio.pl
