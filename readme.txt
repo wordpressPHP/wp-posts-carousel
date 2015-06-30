@@ -15,7 +15,9 @@ This plugin uses [OWL Carousel](http://www.owlcarousel.owlgraphic.com/) in new v
 
 
 This plugin may require some others plugins or libraries:
+
 **Font Awesome** - this library is included but you can disable it in the pugin settings page
+
 **WordPress Popular Posts** - this plugin is required only if you want to display popular posts in the carousel
 
 
