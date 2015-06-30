@@ -34,7 +34,7 @@ function wp_posts_carousel_init() {
  */
 $WP_Posts_Carousel = new WP_Posts_Carousel();
 class WP_Posts_Carousel {
-        const VERSION = '1.0.7';
+        const VERSION = '1.0.8';
         private $plugin_name = 'WP Posts Carousel';
         private $plugin_slug = 'wp-posts-carousel';
         private $options = array();
@@ -123,11 +123,11 @@ class WP_Posts_Carousel {
          * registers the scripts and styles
          */
         function wp_posts_carousel_register_scripts() {
-                wp_register_script("jquery-owl.carousel", plugin_dir_url(__FILE__) . "owl.carousel/owl.carousel.js");	
+                wp_register_script("owl.carousel", plugin_dir_url(__FILE__) . "owl.carousel/owl.carousel.js");	
                 wp_register_script("jquery-mousewheel", plugin_dir_url(__FILE__) . "owl.carousel/jquery.mousewheel.min.js");	
                 wp_register_style("owl.carousel.style", plugin_dir_url(__FILE__) . "owl.carousel/assets/owl.carousel.css"); 
 
-                wp_enqueue_script("jquery-owl.carousel");
+                wp_enqueue_script("owl.carousel");
                 wp_enqueue_script("jquery-mousewheel");
                 wp_enqueue_style("owl.carousel.style");
                 

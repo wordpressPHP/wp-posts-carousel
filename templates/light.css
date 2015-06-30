@@ -2,7 +2,7 @@
 * light theme
 */
 .light-theme.wp-posts-carousel { overflow: hidden; }
-.light-theme.wp-posts-carousel .wp-posts-carousel-slide { padding: 1%; position: relative; margin-left: 2%; width: 95%; overflow: hidden; }
+.light-theme.wp-posts-carousel .wp-posts-carousel-slide { padding: 1%; position: relative; margin-left: 2%; width: 95%; }
 .light-theme.wp-posts-carousel .wp-posts-carousel-container { border: 1px solid transparent; padding: 10px; transition: all 0.3s ease 0s; }
 .light-theme.wp-posts-carousel .wp-posts-carousel-container:hover { border-color: #ebebeb; background: #fcfcfc; }
 /*

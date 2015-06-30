@@ -1971,6 +1971,7 @@
 			'initialized.owl.carousel refreshed.owl.carousel': $.proxy(function(e) {
 				if (e.namespace && this._core.settings.autoHeight) {
 					this.update();
+                                        
 				}
 			}, this),
 			'changed.owl.carousel': $.proxy(function(e) {
@@ -2013,7 +2014,7 @@
 			maxheight = 0;
 
 		$.each(visible, function(index, item) {
-			heights.push($(item).outerHeight(true));
+			heights.push($(item).outerHeight({margin: true}));
 		});
 
 		maxheight = Math.max.apply(null, heights);

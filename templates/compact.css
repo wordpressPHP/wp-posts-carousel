@@ -2,9 +2,10 @@
 * compact theme
 */
 .compact-theme.wp-posts-carousel { overflow: hidden; }
-.compact-theme.wp-posts-carousel .wp-posts-carousel-slide { padding: 1%; position: relative; padding-top: 35px; overflow: hidden; }
+.compact-theme.wp-posts-carousel .wp-posts-carousel-slide { padding: 1%; position: relative; padding-top: 35px; }
 .compact-theme.wp-posts-carousel .wp-posts-carousel-container { border: 1px solid #ebebeb; padding: 10px; transition: all 0.3s ease 0s; }
 .compact-theme.wp-posts-carousel .wp-posts-carousel-container:hover { border-color: #ebebeb; background: #fcfcfc; }
+
 /*
 * posts's image
 */
