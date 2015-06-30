@@ -14,7 +14,7 @@ WP Posts Carousel is a widget and shortcode generator to show posts or custom po
 This plugin uses [OWL Carousel](http://www.owlcarousel.owlgraphic.com/) in new version 2.0.0-beta.2.4.
 
 
-This plugin may require some others plugins or libraries:
+== This plugin may require some others plugins or libraries: ==
 * **Font Awesome** - this library is included but you can disable it in the pugin settings page
 * **WordPress Popular Posts** - this plugin is required only if you want to display popular posts* in the carousel
 
