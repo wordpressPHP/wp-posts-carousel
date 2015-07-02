@@ -74,6 +74,8 @@ Folders tree should looks like this:
 4. Example of usage
 
 == Changelog ==
+= 1.0.9 =
+* fixed problem with loading owl.carousel script
 = 1.0.8 =
 * fixed problem with carousel height in Safari browser
 = 1.0.7 =
@@ -102,6 +104,8 @@ Folders tree should looks like this:
 Initial release
 
 == Upgrade Notice ==
+= 1.0.9 =
+* fixed problem with loading owl.carousel script
 = 1.0.8 =
 * fixed problem with carousel height in Safari browser
 = 1.0.7 =

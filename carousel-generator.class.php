@@ -85,8 +85,8 @@ class WpPostsCarouselGenerator {
                 /*
                  * print styles
                  */
-                wp_print_scripts('owl.carousel');
-                wp_print_styles('owl.carousel.style');
+                //wp_print_scripts('owl.carousel');
+                //wp_print_styles('owl.carousel.style');
         
                 /*
                  * theme
