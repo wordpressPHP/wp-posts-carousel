@@ -229,10 +229,21 @@ function settings_page() {
                                         </p>
     
                                         <hr />
+                                </div>
+                            
+                                <h3 class="hndle" style="color:#A6CF38;">
+                                        <span><?php _e('Need custom modification, plugin or theme?', $this->plugin_slug) ?></span>
+                                </h3>
+                                <div class="inside">
+                                        <p class="inner">
+                                                <?php _e('If you like this plugin, but need something a bit more custom or completely new, you can hire me to work for you! Email me at <a href="mailto:m.gierada@teastudio.pl" title="Hire me">m.gierada@teastudio.pl</a> for more information!', $this->plugin_slug) ?><br />                                                
+                                        </p>
+    
+                                        <hr />
                                         <p>
                                                 <a href="http://www.teastudio.pl" target="_blank" title="Design and web development - www.teastudio.pl"><img src="<?php echo plugins_url('/images/teastudio-logo.png' , __FILE__ ) ?>" title="www.teastudio.pl" alt="www.teastudio.pl" /></a>
                                         </p>
-                                </div>
+                                </div>                            
                         </div>
                 </div>
         
@@ -260,8 +271,9 @@ function settings_page() {
                                         </table>
 
                                         <?php submit_button('', 'primary', 'submit', true); ?>
-                                </form>
+                                </form>                          
                         </div>
+                    
                 </div>
         </div>
 </div>        
