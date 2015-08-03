@@ -27,6 +27,7 @@ class WpPostsCarouselGenerator {
                             'show_title'              => 'true',
                             'show_created_date'       => 'true',
                             'show_description'        => 'excerpt',
+                            'allow_shortcodes'        => 'false',
                             'show_category'           => 'true',
                             'show_tags'               => 'false',
                             'show_more_button'        => 'true',    
@@ -280,7 +281,7 @@ class WpPostsCarouselGenerator {
                         if ($params['show_description'] === 'excerpt') {
                                 $description = '<div class="wp-posts-carousel-desc">'. $post->post_excerpt .'</div>';
                         } else if ($params['show_description'] === 'content') {
-                                $description = '<div class="wp-posts-carousel-desc">'. get_the_content() .'</div>';
+                                $description = '<div class="wp-posts-carousel-desc">'. ( $params['allow_shortcodes'] === 'true' ? do_shortcode( get_the_content( '', true) ) : get_the_content() ) .'</div>';
                         } 
                         
                         
@@ -313,6 +314,11 @@ class WpPostsCarouselGenerator {
                                 $out .= '</div>';
                         $out .= '</div>';
                 }
+                /*
+                 * reset wordpress query
+                 */
+                wp_reset_query();
+                
                 $out .= '</div>';        
         
                 /*
@@ -388,6 +394,7 @@ class WpPostsCarouselGenerator {
                 $checkboxes = array(
                                     'show_title'              => 'true',
                                     'show_created_date'       => 'true',
+                                    'allow_shortcodes'        => 'false',
                                     'show_category'           => 'true',
                                     'show_tags'               => 'false',
                                     'show_more_button'        => 'true',

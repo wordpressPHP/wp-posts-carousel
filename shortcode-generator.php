@@ -147,6 +147,12 @@ function insert_shortcode() {
             </td>
         </tr>   
         <tr>
+            <td><?php _e('Allow shortcodes in full content', 'wp-posts-carousel'); ?>:</td>
+            <td>
+                <input type="checkbox" value="1" name="allow_shortcodes" id="allow_shortcodes">
+            </td>
+        </tr>           
+        <tr>
             <td><?php _e('Show category', 'wp-posts-carousel'); ?>:</td>
             <td>
                 <input type="checkbox" value="1" name="show_category" id="show_category" checked="checked">

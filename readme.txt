@@ -74,6 +74,9 @@ Folders tree should looks like this:
 4. Example of usage
 
 == Changelog ==
+= 1.1.0 =
+* fixed problem with WordPress queries
+* added option to allow shortcodes in post content
 = 1.0.9 =
 * fixed problem with loading owl.carousel script
 = 1.0.8 =
@@ -104,6 +107,9 @@ Folders tree should looks like this:
 Initial release
 
 == Upgrade Notice ==
+= 1.1.0 =
+* fixed problem with WordPress queries and
+* added option to allow shortcodes in post content
 = 1.0.9 =
 * fixed problem with loading owl.carousel script
 = 1.0.8 =

@@ -148,6 +148,10 @@ function form($instance) {
         </select>
     </p>  
     <p>
+        <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("allow_shortcodes"); ?>" name="<?php echo $this->get_field_name("allow_shortcodes"); ?>" <?php array_key_exists('allow_shortcodes', $instance) ? checked( (bool) $instance["allow_shortcodes"], false ): null; ?> value="1" />
+        <label for="<?php echo $this->get_field_id("allow_shortcodes"); ?>"><?php _e("Allow shortcodes in full content", "wp-posts-carousel"); ?></label>
+    </p>    
+    <p>
         <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("show_category"); ?>" name="<?php echo $this->get_field_name("show_category"); ?>" <?php array_key_exists('show_category', $instance) ? checked( (bool) $instance["show_category"], true ): null; ?> value="1" />
         <label for="<?php echo $this->get_field_id("show_category"); ?>"><?php _e("Show category", "wp-posts-carousel"); ?></label>
     </p>     
