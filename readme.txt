@@ -115,6 +115,8 @@ For more info visit [WordPress Function Reference/add filter](https://codex.word
 = 1.1.1 =
 * added actions and filters to overwrite html and values
 * added option to select posts or custom post types by IDs
+
+Remember to rebuild your shortcodes and update widgets options.
 = 1.1.0 =
 * fixed problem with WordPress queries
 * added option to allow shortcodes in post content
