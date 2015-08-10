@@ -91,15 +91,7 @@ Variable **$params** includes all plugin's values and other variables that are r
 
 e.g:
 To overwrite html of the title, you can create function in your functions.php file:
-
-'function my_wpc_item_title( $title, $params ) {
-    $title = '<h4 class="wp-posts-carousel-title">';
-            $title .= '<a href="'. $params['post_url'] .'" title="'. $params['post']->post_title .'">'. $params['post']->post_title .'</a>';
-    $title .= '</h4>'; 
-
-    return $title;
-}
-add_filter('wpc_item_title', 'my_wpc_item_title', 1, 2);'
+[See "Overwrite title by filters from WP Posts Carousel"](http://pastebin.com/kZs3bDh1)
 
 
 For more info visit [WordPress Function Reference/add filter](https://codex.wordpress.org/Function_Reference/add_filter)
