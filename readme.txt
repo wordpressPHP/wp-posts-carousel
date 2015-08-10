@@ -66,6 +66,44 @@ Folders tree should looks like this:
 `/themes/my_wordpress_theme/css/wp-posts-carousel/custom.css`
 
 
+= How can I use custom actions or filters? =
+From 1.1.1 version you can use your own actions and filters to overwrite values or html code.
+
+
+Lists of actions:
+
+* wpc_before_item_content (1 parameter - $params)
+* wpc_after_item_content (1 parameter - $params)
+
+
+Lists of filters:
+
+* wpc_item_featured_image (2 parameters - $value, $params)
+* wpc_item_title (2 parameters - $value, $params)
+* wpc_item_created_date (2 parameters - $value, $params)
+* wpc_item_categories (2 parameters - $value, $params)
+* wpc_item_description (2 parameters - $value, $params)
+* wpc_item_tags (2 parameters - $value, $params)
+* wpc_item_buttons (2 parameters - $value, $params)
+
+Variable **$params** includes all plugin's values and other variables that are required to display.
+
+
+e.g:
+To overwrite html of the title, you can create function in your functions.php file:
+
+'function my_wpc_item_title( $title, $params ) {
+    $title = '<h4 class="wp-posts-carousel-title">';
+            $title .= '<a href="'. $params['post_url'] .'" title="'. $params['post']->post_title .'">'. $params['post']->post_title .'</a>';
+    $title .= '</h4>'; 
+
+    return $title;
+}
+add_filter('wpc_item_title', 'my_wpc_item_title', 1, 2);'
+
+
+For more info visit [WordPress Function Reference/add filter](https://codex.wordpress.org/Function_Reference/add_filter)
+
 
 == Screenshots ==
 1. Widget configuration
@@ -74,6 +112,9 @@ Folders tree should looks like this:
 4. Example of usage
 
 == Changelog ==
+= 1.1.1 =
+* added actions and filters to overwrite html and values
+* added option to select posts or custom post types by IDs
 = 1.1.0 =
 * fixed problem with WordPress queries
 * added option to allow shortcodes in post content
@@ -107,6 +148,9 @@ Folders tree should looks like this:
 Initial release
 
 == Upgrade Notice ==
+= 1.1.1 =
+* added actions and filters to overwrite html and values
+* added option to select posts or custom post types by IDs
 = 1.1.0 =
 * fixed problem with WordPress queries and
 * added option to allow shortcodes in post content

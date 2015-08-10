@@ -19,6 +19,7 @@ class WpPostsCarouselGenerator {
                             'template'                => 'default.css',
                             'post_type'               => 'post',
                             'ordering'                => 'asc',
+                            'posts'                   => '',
                             'categories'              => '',
                             'tags'                    => '',
                             'all_items'               => 10,
@@ -120,7 +121,7 @@ class WpPostsCarouselGenerator {
                 /*
                  * prepare sql query
                  */
-                $sql_array = array('post_type'      =>  $post_type,               
+                $query_args = array('post_type'      =>  $post_type,               
                                    'post_status'    =>  'publish',                                   
                                    'posts_per_page' =>  $params['all_items'],
                                    'no_found_rows'  =>  1,
@@ -128,12 +129,17 @@ class WpPostsCarouselGenerator {
                                    );
 
                 $sql_i = 0;
+
+                if ($params['posts'] != "") {
+                        $query_args['post__in'] = explode(',', $params['posts']);
+                }                
+                
                 if ($params['categories'] != "" || $params['tags'] != "") {
-                        $sql_array['tax_query'] = array('relation' => 'AND', array());
+                        $query_args['tax_query'] = array('relation' => 'AND', array());
                 }
                 
                 if ($params['categories'] != "") {
-                        $sql_array['tax_query'][$sql_i++] = array('taxonomy'  =>  $post_type_category,
+                        $query_args['tax_query'][$sql_i++] = array('taxonomy'  =>  $post_type_category,
                                                                   'field'     =>  'id',
                                                                   'terms'     =>  explode(',', $params['categories']),
                                                                   'operator'  => 'IN'
@@ -141,32 +147,37 @@ class WpPostsCarouselGenerator {
                 }
                 
                 if ($params['tags'] != "") {
-                        $sql_array['tax_query'][$sql_i++] = array('taxonomy'  =>  $post_type_tag,
+                        $query_args['tax_query'][$sql_i++] = array('taxonomy'  =>  $post_type_tag,
                                                                   'field'     =>  'name',
                                                                   'terms'     =>  explode(',', $params['tags']),
                                                                   'operator'  => 'IN'
                                                             );
                 }                
 
-                switch($params['show_only']) {
-                        case "id": 
-                                $sql_array['orderby'] = 'ID';
-                                break;   
-                        
-                        case "newest":
-                                $sql_array['orderby'] = 'post_date';
-                                break;  
-                        case "title":
-                        default:
-                                $sql_array['orderby'] = 'post_title';
-                                break;
-                }
-
-                if( in_array($params['ordering'], array('asc', 'desc')) ) {
-                        $sql_array['order'] = $params['ordering'];
-                }else {                    
-                        $sql_array['order'] = 'desc';
-                } 
+				
+				if ($params['posts'] != "") {
+						$query_args['orderby'] = 'ID';
+				} else {
+						switch($params['show_only']) {
+								case "id": 
+										$query_args['orderby'] = 'ID';
+										break;   
+								
+								case "newest":
+										$query_args['orderby'] = 'post_date';
+										break;  
+								case "title":
+								default:
+										$query_args['orderby'] = 'post_title';
+										break;
+						}	
+				}
+				
+				if( in_array($params['ordering'], array('asc', 'desc')) ) {
+						$query_args['order'] = $params['ordering'];
+				}else {                    
+						$query_args['order'] = 'desc';
+				} 				
                 /*
                  * end sql query
                  */
@@ -181,9 +192,9 @@ class WpPostsCarouselGenerator {
                          * include custom queries
                          */
                         require_once("includes/wp-posts-carousel-popular-posts-query.class.php");
-                        $loop = new WP_Posts_Carousel_Popular_Posts_Query($sql_array);
+                        $loop = new WP_Posts_Carousel_Popular_Posts_Query( apply_filters( 'wpc_query', $query_args ) );
                 } else {
-                        $loop = new WP_Query($sql_array);
+                        $loop = new WP_Query( apply_filters( 'wpc_query', $query_args ) );
                 }                
 
                 /*
@@ -223,39 +234,50 @@ class WpPostsCarouselGenerator {
                         if ($image[0] == '' || $image[0] == '/') {
                                 $image[0] = plugin_dir_url( __FILE__ ).'images/placeholder.png';   
                         }
+                        
+                        /*
+                         * show featured image
+                         */
+                        if ($params['show_featured_image'] === 'true') {
+                                $featured_image = '<div class="wp-posts-carousel-image">';
+                                        $featured_image .= '<a href="'. $post_url .'" title="'. __('Read more', 'wp-posts-carousel') .' '. $post->post_title .'">';
+                                                $featured_image .= '<img src="'. $image[0] .'" alt="'. $post->post_title .'" style="max-width:'. $params['image_width'] .'%;max-height:'. $params['image_height'] .'%">';
+                                        $featured_image .= '</a>';
+                                $featured_image .= '</div>';
+                        }                        
 
                         /*
                          * show title
                          */
                         if ($params['show_title'] === 'true') {
                                 $title = '<h3 class="wp-posts-carousel-title">';
-                                        $title .= '<a href="'. $post_url .'" title="'.$post->post_title.'">'.$post->post_title.'</a>';
-                                $title .= '</h3>';                 
+                                        $title .= '<a href="'. $post_url .'" title="'. $post->post_title .'">'. $post->post_title .'</a>';
+                                $title .= '</h3>';    
                         }
                         
                         /*
                          * show title
                          */
+						 $categories_list = get_the_terms($post->ID, $post_type_category);
                         if ($params['show_category'] === 'true') {
-                                $categories = get_the_terms($post->ID, $post_type_category);
-                                
-                                if ($categories) {
+                                if ($categories_list) {
                                         $category = '<p class="wp-posts-carousel-categories">';
-                                                foreach ($categories as $cat) {
+                                                foreach ($categories_list as $cat) {
                                                         $category .= '<a href="'.  get_category_link( $cat->term_id ).'" title="' . esc_attr( sprintf( __( "View all items in %s" ), $cat->name ) ) . '">'.$cat->name.'</a> ';
                                                 }
-                                        $category .= '</p>';   
+                                        $category .= '</p>';  
                                 }
-                        }                        
+                        }  
                         
                         /*
                          * show tags
-                         */                        
-                        if ($params['show_tags'] == 'true') {        
+                         */            
+						$tags_list = get_the_term_list(get_the_ID(), $post_type_tag, '', ' ', '' );						 
+                        if ($params['show_tags'] == 'true') {                
                                 $tags = '<p class="wp-posts-carousel-tags">';
-                                        $tags .= get_the_term_list(get_the_ID(), $post_type_tag, '', ' ', '' );
-                                $tags .= '</p>';                                   
-                        }                          
+                                        $tags .= $tags_list;
+                                $tags .= '</p>';      
+                        }
                         
                         /*
                          * show created date
@@ -263,17 +285,8 @@ class WpPostsCarouselGenerator {
                         if ($params['show_created_date'] === 'true') {
                                 $created_date = '<p class="wp-posts-carousel-created-date">';
                                         $created_date .= get_the_date();
-                                $created_date .= '</p>';                 
-                        }    
-                        
-                        if ($params['show_featured_image'] === 'true') {
-                                $featured_image = '<div class="wp-posts-carousel-image">';
-                                        $featured_image .= '<a href="'. $post_url .'" title="'. __('Read more', 'wp-posts-carousel') .' '. $post->post_title .'">';
-                                                $featured_image .= '<img src="'. $image[0] .'" alt="'. $post->post_title .'" style="max-width:'. $params['image_width'] .'%;max-height:'. $params['image_height'] .'%">';
-                                        $featured_image .= '</a>';
-                                $featured_image .= '</div>';
-                        }
-                        
+                                $created_date .= '</p>'; 
+                        }   
 
                         /*
                          * show excerpt or full content
@@ -283,34 +296,56 @@ class WpPostsCarouselGenerator {
                         } else if ($params['show_description'] === 'content') {
                                 $description = '<div class="wp-posts-carousel-desc">'. ( $params['allow_shortcodes'] === 'true' ? do_shortcode( get_the_content( '', true) ) : get_the_content() ) .'</div>';
                         } 
-                        
-                        
+                 
                         /*
                          * show button
                          */
                         if ($params['show_more_button'] === 'true') {     
                                 $buttons = '<p class="wp-posts-carousel-buttons">';
                                         $buttons .= '<a href="'. $post_url .'" class="wp-posts-carousel-more-button button" title="'. __('Read more', 'wp-posts-carousel') .' '.$post->post_title.'">'. __('read more', 'wp-posts-carousel') .'</a>';
-                                $buttons .= '<p>';
+                                $buttons .= '<p>';                            
                         }
-            
 
                         /*
                          * list products
                          */
                         $out .= '<div class="wp-posts-carousel-slide slides-'. $params['items_to_show'] .'">';
                                 $out .= '<div class="wp-posts-carousel-container">';
+                                        do_action( 'wpc_before_item_content', $params );
                                         
-                                        $out .= $featured_image;
+                                        $out .= apply_filters( 'wpc_item_featured_image', $featured_image, array( 'post_url' => $post_url,
+                                                                                                                  'post' => $post,
+                                                                                                                  'image' => $image[0],
+                                                                                                                  'params' => $params,
+                                                                                                                ) );
 
                                         $out .= '<div class="wp-posts-carousel-details">';
-                                                $out .= $title;                                                
-                                                $out .= $created_date;
-                                                $out .= $category;
-                                                $out .= $description;  
-                                                $out .= $tags;                                                                                              
-                                                $out .= $buttons;              
+                                                $out .= apply_filters( 'wpc_item_title', $title, array( 'post_url' => $post_url,
+                                                                                                                  'post' => $post,
+                                                                                                                  'params' => $params,
+                                                                                                                ) );                                                
+                                                $out .= apply_filters( 'wpc_item_created_date', $created_date, array( 'date' => get_the_date(),
+                                                                                                                      'post' => $post,
+                                                                                                                      'params' => $params,
+                                                                                                                    ) );
+                                                $out .= apply_filters( 'wpc_item_categories', $category, array( 'categories_list' => $categories_list,
+                                                                                                                'post' => $post,
+                                                                                                                'params' => $params,
+                                                                                                              ) );
+                                                $out .= apply_filters( 'wpc_item_description', $description, array( 'post' => $post,
+                                                                                                                    'params' => $params,
+                                                                                                                  ) );   
+                                                $out .= apply_filters( 'wpc_item_tags', $tags, array( 'tags_list' => $tags_list,
+                                                                                                      'post' => $post,
+                                                                                                      'params' => $params,
+                                                                                                    ) );                                                                                              
+                                                $out .= apply_filters( 'wpc_item_buttons', $buttons , array( 'post_url' => $post_url,
+                                                                                                             'post' => $post,
+                                                                                                             'params' => $params,
+                                                                                                           ) );              
                                         $out .= '</div>';
+                                        
+                                        do_action( 'wpc_after_item_content', $params );
                                 $out .= '</div>';
                         $out .= '</div>';
                 }

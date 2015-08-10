@@ -73,18 +73,41 @@ function insert_shortcode() {
             </td>
         </tr>
         <tr>
-            <td align="left"><?php _e('Show only', 'wp-posts-carousel'); ?>:</td>
-            <td>
-                <select name="show_only" id="show_only" class="select">
-                <?php          
-                        $show_list = Utils::getShows();
-                        foreach($show_list as $key => $list) {
-                            echo "<option value=\"".$key."\">". $list ."</option>";
-                        }
-                ?>                      
-                </select>	
+            <td colspan="2">
+                <fieldset style="border:1px solid #dfdfdf;">
+                    <legend><strong><?php _e('Select what you want to display', 'wp-posts-carousel') ?></strong></legend>
+                    
+                    <table cellspacing="5" cellpadding="5">
+                        <tr>
+                            <td align="left"><?php _e('Show', 'wp-posts-carousel'); ?>:</td>
+                            <td>
+                                <select name="show_only" id="show_only" class="select">
+                                <?php          
+                                        $show_list = Utils::getShows();
+                                        foreach($show_list as $key => $list) {
+                                            echo "<option value=\"".$key."\">". $list ."</option>";
+                                        }
+                                ?>                      
+                                </select>	
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td colspan="2"><?php _e('or', "wp-posts-carousel") ?></td>
+                        </tr>
+                        <tr>
+                            <td align="left"><?php _e('by selected IDs', 'wp-posts-carousel'); ?>:</td>
+                            <td>
+                                <input type="text" name="posts" id="posts" value="" size="30">
+                                <br />
+                                <small><?php _e('Please enter Post or custom post type IDs with comma seperated.', 'wp-posts-carousel') ?></small>
+                            </td>
+                        </tr> 
+                    </table>
+                </fieldset>
+                
             </td>
-        </tr>          
+        </tr>
+        
         <tr>
             <td align="left"><?php _e('Ordering', 'wp-posts-carousel'); ?>:</td>
             <td>

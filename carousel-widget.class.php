@@ -87,18 +87,32 @@ function form($instance) {
         <br />
         <input size="5" id="<?php echo $this->get_field_id("all_items"); ?>" name="<?php echo $this->get_field_name("all_items"); ?>" type="text" value="<?php echo esc_attr($instance["all_items"]); ?>" />
     </p> 
-    <p>
-        <label for="<?php echo $this->get_field_id("show_only"); ?>"><?php _e("Show only", "wp-posts-carousel"); ?>:</label>
-        <br />
-        <select name="<?php echo $this->get_field_name("show_only"); ?>" id="<?php echo $this->get_field_id("show_only"); ?>" class="select">
-          <?php                 
-                $show_list = Utils::getShows();
-                foreach($show_list as $key => $list) {
-                    echo "<option value=\"".$key."\" ". (esc_attr($instance["show_only"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
-                }
-          ?>
-        </select>
-    </p>      
+
+    <div>
+        <fieldset style="border:1px solid #dfdfdf;padding:10px;">
+            <legend><strong><?php _e('Select what you want to display', 'wp-posts-carousel') ?></strong></legend>
+            <p>
+                <label for="<?php echo $this->get_field_id("show_only"); ?>"><?php _e("Show", "wp-posts-carousel"); ?>:</label>
+                <br />
+                <select name="<?php echo $this->get_field_name("show_only"); ?>" id="<?php echo $this->get_field_id("show_only"); ?>" class="select">
+                  <?php                 
+                        $show_list = Utils::getShows();
+                        foreach($show_list as $key => $list) {
+                            echo "<option value=\"".$key."\" ". (esc_attr($instance["show_only"]) == $key ? 'selected="selected"' : null) .">". $list ."</option>";
+                        }
+                  ?>
+                </select>
+            </p>     
+            <p><?php _e('or', "wp-posts-carousel") ?></p>
+            <p>
+                <label for="<?php echo $this->get_field_id("posts"); ?>"><?php _e("by selected IDs", "wp-posts-carousel"); ?>:</label>
+                <input class="widefat" id="<?php echo $this->get_field_id("posts"); ?>" name="<?php echo $this->get_field_name("posts"); ?>" type="text" value="<?php echo esc_attr($instance["posts"]); ?>" />
+                <br />
+                <small><?php _e("Please enter Post or custom post type IDs with comma seperated.", "wp-posts-carousel") ?></small>
+            </p>            
+        </fieldset>
+    </div>
+     
     <p>
         <label for="<?php echo $this->get_field_id("ordering"); ?>"><?php _e("Ordering", "wp-posts-carousel"); ?>:</label>
         <br />
