@@ -105,7 +105,7 @@ For more info visit [WordPress Function Reference/add filter](https://codex.word
 
 == Changelog ==
 = 1.1.2 =
-* replaced display excerpt from directly field's value to automatically gererate excerpt by get_the_excerpt() function
+* replaced display the excerpt from directly field's value to automatically gererate excerpt by get_the_excerpt() function
 = 1.1.1 =
 * added actions and filters to overwrite html and values
 * added option to select posts or custom post types by IDs
