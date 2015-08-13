@@ -292,7 +292,7 @@ class WpPostsCarouselGenerator {
                          * show excerpt or full content
                          */
                         if ($params['show_description'] === 'excerpt') {
-                                $description = '<div class="wp-posts-carousel-desc">'. $post->post_excerpt .'</div>';
+                                $description = '<div class="wp-posts-carousel-desc">'. get_the_excerpt() .'</div>';
                         } else if ($params['show_description'] === 'content') {
                                 $description = '<div class="wp-posts-carousel-desc">'. ( $params['allow_shortcodes'] === 'true' ? do_shortcode( get_the_content( '', true) ) : get_the_content() ) .'</div>';
                         } 

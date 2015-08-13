@@ -104,6 +104,8 @@ For more info visit [WordPress Function Reference/add filter](https://codex.word
 4. Example of usage
 
 == Changelog ==
+= 1.1.2 =
+* replaced display excerpt from directly field's value to automatically gererate excerpt by get_the_excerpt() function
 = 1.1.1 =
 * added actions and filters to overwrite html and values
 * added option to select posts or custom post types by IDs
@@ -142,6 +144,8 @@ Remember to rebuild your shortcodes and update widgets options.
 Initial release
 
 == Upgrade Notice ==
+= 1.1.2 =
+* replaced display excerpt method
 = 1.1.1 =
 * added actions and filters to overwrite html and values
 * added option to select posts or custom post types by IDs
