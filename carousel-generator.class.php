@@ -352,7 +352,8 @@ class WpPostsCarouselGenerator {
                 /*
                  * reset wordpress query
                  */
-                wp_reset_query();
+                //wp_reset_query();
+                wp_reset_postdata();
                 
                 $out .= '</div>';        
         

@@ -47,7 +47,7 @@ function insert_shortcode() {
                     <?php
                         $files_list = Utils::getTemplates();    
                         foreach($files_list as $filename) {
-                            echo "<option value=\"".$filename."\">".$filename."</option>";
+                            echo "<option value=\"". $filename ."\">". $filename ."</option>";
                         }
                     ?>
                 </select>	
@@ -60,7 +60,7 @@ function insert_shortcode() {
                 <?php          
                         $taxonomies = Utils::getTaxonomies();
                         foreach($taxonomies as $key => $type) {
-                            echo "<option value=\"" .$key ."\">". $type->label ."</option>";
+                            echo "<option value=\"". $key ."\">". $type->label ."</option>";
                         }
                 ?>          
                 </select>	
@@ -85,7 +85,7 @@ function insert_shortcode() {
                                 <?php          
                                         $show_list = Utils::getShows();
                                         foreach($show_list as $key => $list) {
-                                            echo "<option value=\"".$key."\">". $list ."</option>";
+                                            echo "<option value=\"". $key ."\">". $list ."</option>";
                                         }
                                 ?>                      
                                 </select>	
@@ -115,7 +115,7 @@ function insert_shortcode() {
                 <?php          
                         $ordering_list = Utils::getOrderings();
                         foreach($ordering_list as $key => $list) {
-                            echo "<option value=\"".$key."\">". $list ."</option>";
+                            echo "<option value=\"". $key ."\">". $list ."</option>";
                         }
                 ?>   
                 </select>	
@@ -163,7 +163,7 @@ function insert_shortcode() {
                 <?php          
                         $description_list = Utils::getDescriptions();
                         foreach($description_list as $key => $list) {
-                            echo "<option value=\"".$key."\">". $list ."</option>";
+                            echo "<option value=\"". $key ."\">". $list ."</option>";
                         }
                 ?>                
                 </select>	
@@ -206,7 +206,7 @@ function insert_shortcode() {
                 <?php          
                         $source_list = Utils::getSources();
                         foreach($source_list as $key => $list) {
-                            echo "<option value=\"".$key."\">". $list ."</option>";
+                            echo "<option value=\"". $key ."\">". $list ."</option>";
                         }
                 ?>      
                 </select>
@@ -333,11 +333,11 @@ function insert_shortcode() {
         <tr>
             <td align="left"><?php echo _e('Animation', 'wp-posts-carousel'); ?>:</td>
             <td>
-                <select name="animation" id="animation" class="select">
+                <select name="easing" id="easing" class="select">
                 <?php            
                     $animation_list = Utils::getAnimations(); 
                     foreach($animation_list as $key => $list) {
-                          echo "<option value=\"".$key."\">".$list."</option>";
+                          echo "<option value=\"". $key ."\">".$list."</option>";
                     }
                 ?>    
                 </select>
