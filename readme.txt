@@ -104,6 +104,8 @@ For more info visit [WordPress Function Reference/add filter](https://codex.word
 4. Example of usage
 
 == Changelog ==
+= 1.1.3 =
+* fixed problem with animation variable in shortcode generator
 = 1.1.2 =
 * replaced display the excerpt from directly field's value to automatically gererate excerpt by get_the_excerpt() function
 = 1.1.1 =
@@ -144,6 +146,8 @@ Remember to rebuild your shortcodes and update widgets options.
 Initial release
 
 == Upgrade Notice ==
+= 1.1.3 =
+* fixed problem with animation variable in shortcode generator
 = 1.1.2 =
 * replaced display excerpt method
 = 1.1.1 =

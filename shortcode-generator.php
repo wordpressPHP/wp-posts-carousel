@@ -333,7 +333,7 @@ function insert_shortcode() {
         <tr>
             <td align="left"><?php echo _e('Animation', 'wp-posts-carousel'); ?>:</td>
             <td>
-                <select name="easing" id="easing" class="select">
+                <select name="animation" id="animation" class="select">
                 <?php            
                     $animation_list = Utils::getAnimations(); 
                     foreach($animation_list as $key => $list) {
