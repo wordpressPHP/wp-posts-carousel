@@ -104,6 +104,8 @@ For more info visit [WordPress Function Reference/add filter](https://codex.word
 4. Example of usage
 
 == Changelog ==
+= 1.1.5 =
+* fixed problem with jQuery UI Effects library
 = 1.1.4 =
 * fixed problem with duplicate posts
 = 1.1.3 =
@@ -148,6 +150,8 @@ Remember to rebuild your shortcodes and update widgets options.
 Initial release
 
 == Upgrade Notice ==
+= 1.1.5 =
+* fixed problem with jQuery UI Effects library
 = 1.1.4 =
 * fixed problem with duplicate posts
 = 1.1.3 =

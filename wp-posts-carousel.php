@@ -2,8 +2,8 @@
 /*
 Plugin Name: Wp Posts Carousel
 Plugin URI: http://www.teastudio.pl/produkt/wp-posts-carousel/
-Description: WP Posts Carousel is a widget to show posts in carousel by <a href="http://www.owlcarousel.owlgraphic.com/" target="_blank" title="OWL Carousel homepage">OWL Carousel</a>.
-Version: 1.1.4
+Description: WP Posts Carousel is a widget and a shortcode generator to show posts in carousel by <a href="http://www.owlcarousel.owlgraphic.com/" target="_blank" title="OWL Carousel homepage">OWL Carousel</a>.
+Version: 1.1.5
 Author: Marcin Gierada
 Author URI: http://www.teastudio.pl/
 Author Email: m.gierada@teastudio.pl
@@ -34,7 +34,7 @@ function wp_posts_carousel_init() {
  */
 $WP_Posts_Carousel = new WP_Posts_Carousel();
 class WP_Posts_Carousel {
-        const VERSION = '1.1.4';
+        const VERSION = '1.1.5';
         private $plugin_name = 'WP Posts Carousel';
         private $plugin_slug = 'wp-posts-carousel';
         private $options = array();
@@ -127,6 +127,7 @@ class WP_Posts_Carousel {
                 wp_register_script("jquery-mousewheel", plugin_dir_url(__FILE__) . "owl.carousel/jquery.mousewheel.min.js", array('jquery'), '3.1.12', true);	
                 wp_register_style("owl.carousel.style", plugin_dir_url(__FILE__) . "owl.carousel/assets/owl.carousel.css"); 
 
+                wp_enqueue_script("jquery-effects-core");
                 wp_enqueue_script("owl.carousel");
                 wp_enqueue_script("jquery-mousewheel");
                 wp_enqueue_style("owl.carousel.style");
