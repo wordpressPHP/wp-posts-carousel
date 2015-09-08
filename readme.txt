@@ -7,7 +7,7 @@ Tested up to: 4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WP Posts Carousel is a widget and shortcode generator to show posts or custom post types in carousel by Owl Carousel.
+WP Posts Carousel is a widget and a shortcode generator to displays posts or custom post types in carousel by Owl Carousel.
 == Description ==
 
 **WP Posts Carousel** allows to view the list of selected post types in a carousel. The plugin offers rich parameters of carousel display and post information, and provides better support for mobile devices. The plugin is equipped with a code generator (allows to insert the carousel into content) and a dedicated widget.
@@ -15,11 +15,11 @@ This plugin uses [OWL Carousel](http://www.owlcarousel.owlgraphic.com/) in new v
 
 
 = This plugin may require some others plugins or libraries: =
-* **Font Awesome** - this library is included but you can disable it in the plugin settings page
+* **Font Awesome** - this library is included but you can disable it on the plugin's settings page
 * **WordPress Popular Posts** - this plugin is required only if you want to display popular posts in the carousel
 
 
-= Now available in the following Languages = 
+= Now available in the following Languages =
 
 * English (en_EN)
 * Polish (pl_PL)
@@ -62,7 +62,7 @@ If you've got any questions, don't hesitate to ask.
 2. If you don't have "css" folder in your WordPress theme, you must create it.
 3. Then, in this folder create another - named "wp-posts-carousel" and now you can move custom stylesheets in there :)
 
-Folders tree should looks like this: 
+Folders tree should looks like this:
 `/themes/my_wordpress_theme/css/wp-posts-carousel/custom.css`
 
 
@@ -104,91 +104,71 @@ For more info visit [WordPress Function Reference/add filter](https://codex.word
 4. Example of usage
 
 == Changelog ==
+= 1.1.7 =
+* added autoplay speed option
+* improved lazy load for large images
+
+= 1.1.6 =
+* updated Polish language translation
+
 = 1.1.5 =
 * fixed problem with jQuery UI Effects library
+
 = 1.1.4 =
 * fixed problem with duplicate posts
+
 = 1.1.3 =
 * fixed problem with animation variable in shortcode generator
+
 = 1.1.2 =
 * replaced display the excerpt from directly field's value to automatically gererate excerpt by get_the_excerpt() function
+
 = 1.1.1 =
 * added actions and filters to overwrite html and values
 * added option to select posts or custom post types by IDs
 
 Remember to rebuild your shortcodes and update widgets options.
+
 = 1.1.0 =
 * fixed problem with WordPress queries
 * added option to allow shortcodes in post content
+
 = 1.0.9 =
 * fixed problem with loading owl.carousel script
+
 = 1.0.8 =
 * fixed problem with carousel height in Safari browser
+
 = 1.0.7 =
 * fixed problem with carousel height in Safari browser
 * changed way to enter tags, from ids to names
+
 = 1.0.6 =
 * new option to sort - by post views (required external plugin - Wordpress Popular Posts)
 * new option to sort - by id
 * new option to sort - by title
 * new option to sort - by date
 * new option to order - random lists
+
 = 1.0.5 =
 * fixed FontAwesome include method
+
 = 1.0.4 =
 * new way to display posts - by full content
 **Important** Before update read FAQ.
 * new option to set margin between items
+
 = 1.0.3 =
-* new option to display posts or other taxonomies with selected tags 
+* new option to display posts or other taxonomies with selected tags
+
 = 1.0.2 =
 * changed custom stylesheet directory
+
 = 1.0.1 =
 * new option to display post tags
 * new way to include FontAwesome - from official Bootstrap CDN
+
 = 1.0.0 =
 Initial release
 
 == Upgrade Notice ==
-= 1.1.5 =
-* fixed problem with jQuery UI Effects library
-= 1.1.4 =
-* fixed problem with duplicate posts
-= 1.1.3 =
-* fixed problem with animation variable in shortcode generator
-= 1.1.2 =
-* replaced display excerpt method
-= 1.1.1 =
-* added actions and filters to overwrite html and values
-* added option to select posts or custom post types by IDs
-= 1.1.0 =
-* fixed problem with WordPress queries and
-* added option to allow shortcodes in post content
-= 1.0.9 =
-* fixed problem with loading owl.carousel script
-= 1.0.8 =
-* fixed problem with carousel height in Safari browser
-= 1.0.7 =
-* fixed problem with carousel height in Safari browser
-* changed way to enter tags, from ids to names
-= 1.0.6 =
-* new option to sort - by post views (required external plugin - Wordpress Popular Posts)
-* new option to sort - by id
-* new option to sort - by title
-* new option to sort - by date
-* new option to order - random lists
-= 1.0.5 =
-* fixed FontAwesome include method
-= 1.0.4 =
-* new way to display posts - by full content
-**Important** Before update read FAQ.
-* new option to set margin between items
-= 1.0.3 =
-* new option to display posts or other taxonomies with selected tags 
-= 1.0.2 =
-* changed custom stylesheet directory
-= 1.0.1 =
-* new option to display post tags
-* new way to include FontAwesome - from official Bootstrap CDN
-= 1.0.0 =
-Initial release

@@ -11,10 +11,11 @@
 .simple-theme.wp-posts-carousel .wp-posts-carousel-image { text-align: center; vertical-align: central; overflow: hidden; padding-top:10px; }
 .simple-theme.wp-posts-carousel .wp-posts-carousel-image a { display: inline-block; width: 100%; text-align: center; }
 .simple-theme.wp-posts-carousel .wp-posts-carousel-image img {display: block; margin: 0 auto; width: auto; }
+.simple-theme.wp-posts-carousel .wp-posts-carousel-image img.owl-lazy {opacity: 0;}
 /*
 * post's details
 */
-.simple-theme.wp-posts-carousel .wp-posts-carousel-details { padding: 0 5px 10px 5px; } 
+.simple-theme.wp-posts-carousel .wp-posts-carousel-details { padding: 0 5px 10px 5px; }
 .simple-theme.wp-posts-carousel .wp-posts-carousel-title { text-align: center; font-size: 18px; }
 .simple-theme.wp-posts-carousel .wp-posts-carousel-desc { font-size: 12px; color: #666; padding: 2%; margin-bottom: 2%; }
 .simple-theme.wp-posts-carousel .wp-posts-carousel-created-date { padding: 0; margin: 0;font-size: 12px; color: #666; }
@@ -41,7 +42,7 @@
 .simple-theme.wp-posts-carousel .owl-controls .owl-nav .owl-next { right: -50px; padding: 0px 27px 0px 20px; }
 .simple-theme.wp-posts-carousel:hover .owl-controls .owl-nav .owl-prev { opacity: 0.7; left: 0px; }
 .simple-theme.wp-posts-carousel:hover .owl-controls .owl-nav .owl-next  { opacity: 0.7; right: 0px; }
-.simple-theme.wp-posts-carousel:hover .owl-controls .owl-nav .owl-prev:hover, 
+.simple-theme.wp-posts-carousel:hover .owl-controls .owl-nav .owl-prev:hover,
 .simple-theme.wp-posts-carousel:hover .owl-controls .owl-nav .owl-next:hover { opacity: 1; color: #6E95B6; }
 
 /*

@@ -1971,7 +1971,7 @@
 			'initialized.owl.carousel refreshed.owl.carousel': $.proxy(function(e) {
 				if (e.namespace && this._core.settings.autoHeight) {
 					this.update();
-                                        
+
 				}
 			}, this),
 			'changed.owl.carousel': $.proxy(function(e) {
@@ -2014,7 +2014,7 @@
 			maxheight = 0;
 
 		$.each(visible, function(index, item) {
-			heights.push($(item).outerHeight({margin: true}));
+			heights.push($(item).outerHeight());
 		});
 
 		maxheight = Math.max.apply(null, heights);
@@ -2034,7 +2034,7 @@
 			typeof this[property] != 'function' && (this[property] = null);
 		}
 	};
-	
+
 	$.fn.owlCarousel.Constructor.Plugins.AutoHeight = AutoHeight;
 
 })(window.Zepto || window.jQuery, window, document);
