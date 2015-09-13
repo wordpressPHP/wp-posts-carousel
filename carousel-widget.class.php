@@ -297,6 +297,12 @@ function form($instance) {
             ?>
         </select>
     </p>
+    <p>
+        <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("auto_height"); ?>" name="<?php echo $this->get_field_name("auto_height"); ?>" <?php array_key_exists('auto_height', $instance) ? checked( (bool) $instance["auto_height"], true ): null; ?> value="1"/>
+        <label for="<?php echo $this->get_field_id("auto_height"); ?>"><?php _e("Auto height", "wp-posts-carousel"); ?></label>
+        <br />
+        <small><?php echo _e("Height adjusted dynamically to highest displayed item.","wp-posts-carousel"); ?></small>
+    </p>
 <?php
     }
 }

@@ -350,6 +350,14 @@ function insert_shortcode() {
             </td>
         </tr>
         <tr>
+            <td align="left"><?php _e('Auto height', 'wp-posts-carousel'); ?>:</td>
+            <td>
+                <input type="checkbox" value="1" name="auto_height" id="auto_height" checked="checked">
+                <br />
+                <small><?php echo _e("Height adjusted dynamically to highest displayed item.","wp-posts-carousel"); ?></small>
+            </td>
+        </tr>
+        <tr>
             <td colspan="2">
                 <input type="button" class="button button-primary button-large" value="<?php _e('Insert Shortcode', 'wp-posts-carousel') ?>" onClick="insert_shortcode();">
             </td>

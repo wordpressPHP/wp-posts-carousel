@@ -53,7 +53,8 @@ class WpPostsCarouselGenerator {
                             'mouse_wheel'             => 'true',
                             'touch_drag'              => 'true',
                             'slide_by'                => 1,
-                            'easing'                  => "linear"
+                            'easing'                  => "linear",
+                            'auto_height'             => 'true',
                            );
         }
 
@@ -427,7 +428,7 @@ class WpPostsCarouselGenerator {
                                     items: '. $params['items_to_show'] .'
                                 }
                             },
-                            autoHeight: true
+                            autoHeight: '. $params['auto_height'] .'
                         });
                         '. $mouse_wheel .'
                     });
@@ -455,7 +456,8 @@ class WpPostsCarouselGenerator {
                                     'lazy_load'               => 'false',
                                     'mouse_drag'              => 'true',
                                     'mouse_wheel'             => 'true',
-                                    'touch_drag'              => 'true'
+                                    'touch_drag'              => 'true',
+                                    'auto_height'             => 'true',
                                     );
 
                 foreach($checkboxes as $k => $v) {

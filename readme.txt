@@ -104,6 +104,9 @@ For more info visit [WordPress Function Reference/add filter](https://codex.word
 4. Example of usage
 
 == Changelog ==
+= 1.1.8 =
+* added option to disable auto height
+
 = 1.1.7 =
 * added autoplay speed option
 * improved lazy load for large images
