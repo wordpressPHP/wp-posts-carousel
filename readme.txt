@@ -104,6 +104,9 @@ For more info visit [WordPress Function Reference/add filter](https://codex.word
 4. Example of usage
 
 == Changelog ==
+= 1.1.9 =
+* fixed display one item carousel
+
 = 1.1.8 =
 * added option to disable auto height
 

@@ -210,7 +210,8 @@ class WpPostsCarouselGenerator {
                 /*
                  * check if there are more then one item
                  */
-                if(!$loop->post_count > 1) {
+                $params['post_count'] = $loop->post_count;
+                if(!$params['post_count'] > 1) {
                     return false;
                 }
 
@@ -395,9 +396,9 @@ class WpPostsCarouselGenerator {
 
                 $out = '<script type="text/javascript">
                     jQuery(document).ready(function(e) {
-                        var wpPostsCarousel'. $params['id'] .' = jQuery("#wp-posts-carousel-'.$params['id'].'");
+                        var wpPostsCarousel'. $params['id'] .' = jQuery("#wp-posts-carousel-'. $params['id'] .'");
                         wpPostsCarousel'. $params['id'] .'.owlCarousel({
-                            loop: '. $params['loop'] .',
+                            loop: '. ( $params['post_count'] > 1  ? $params['loop'] : 'false' ) .',
                             nav: '. $params['nav'] .',
                             navSpeed: '. $params['nav_speed'] .',
                             dots: '. $params['dots'] .',
